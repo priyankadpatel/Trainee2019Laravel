@@ -40,16 +40,39 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                        @if (Route::has('login'))
+                        
+                            @auth
+                              
+                                <a href="{{ url('/home') }}">Home</a>
+                             
+        
+                            @else
+                                
+                                <a href="{{ url('/home') }}" class="nav-link ">Home</a>
+                                <a href="{{ url('/about') }}" class="nav-link ">About</a>
+                                <a href="{{ url('/blog') }}" class="nav-link ">Blog</a>
+                                <a href="{{ url('/project') }}" class="nav-link ">Project</a>
+                                <a href="{{ url('/team') }}" class="nav-link ">Team</a>
+                                <a href="{{ url('/contact') }}" class="nav-link ">Contact Us</a>
+                                <a href="{{ route('login') }}" class="nav-link ">Login</a>
+        
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="nav-link ">Register</a>
+                                @endif
+                            @endauth
+                       
+                    @endif  
                         @else
+                        <a href="{{ url('/home') }}" class="nav-link ">Home</a>
+                        <a href="{{ url('/about') }}"  class="nav-link ">About</a>
+                        <a href="{{ url('/blog') }}"  class="nav-link ">Blog</a>
+                        <a href="{{ url('/project') }}"  class="nav-link ">Project</a>
+                        <a href="{{ url('/team') }}"  class="nav-link ">Team</a>
+                        <a href="{{ url('/contact') }}"  class="nav-link ">Contact Us</a>
+                      
                             <li class="nav-item dropdown">
+                                   
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
