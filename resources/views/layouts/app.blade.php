@@ -41,14 +41,7 @@
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))
-                        
-                            @auth
-                              
-                                <a href="{{ url('/home') }}">Home</a>
-                             
-        
-                            @else
-                                
+                     
                                 <a href="{{ url('/home') }}" class="nav-link ">Home</a>
                                 <a href="{{ url('/about') }}" class="nav-link ">About</a>
                                 <a href="{{ url('/blog') }}" class="nav-link ">Blog</a>
@@ -56,13 +49,10 @@
                                 <a href="{{ url('/team') }}" class="nav-link ">Team</a>
                                 <a href="{{ url('/contact') }}" class="nav-link ">Contact Us</a>
                                 <a href="{{ route('login') }}" class="nav-link ">Login</a>
-        
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="nav-link ">Register</a>
-                                @endif
-                            @endauth
+                                <a href="{{ route('register') }}" class="nav-link ">Register</a>
                        
-                    @endif  
+                        @endif  
+
                         @else
                         <a href="{{ url('/home') }}" class="nav-link ">Home</a>
                         <a href="{{ url('/about') }}"  class="nav-link ">About</a>
