@@ -25,4 +25,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function create()
+    {
+        $Categorys = \App\Category::all();
+ 
+        return view('blog.create',compact('Categorys'));
+    }
 }

@@ -15,9 +15,13 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+   
+    
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    
 </head>
 <body>
     <div id="app">
@@ -42,9 +46,9 @@
                         @guest
                         @if (Route::has('login'))
                      
-                                <a href="{{ url('/home') }}" class="nav-link ">Home</a>
+                                <a href="{{ url('/') }}" class="nav-link ">Home</a>
                                 <a href="{{ url('/about') }}" class="nav-link ">About</a>
-                                <a href="{{ url('/blog') }}" class="nav-link ">Blog</a>
+                                <a href="{{ url('/viewblog') }}" class="nav-link ">Blog</a>
                                 <a href="{{ url('/project') }}" class="nav-link ">Project</a>
                                 <a href="{{ url('/team') }}" class="nav-link ">Team</a>
                                 <a href="{{ url('/contact') }}" class="nav-link ">Contact Us</a>
@@ -54,9 +58,9 @@
                         @endif  
 
                         @else
-                        <a href="{{ url('/home') }}" class="nav-link ">Home</a>
+                        <a href="{{ url('/') }}" class="nav-link ">Home</a>
                         <a href="{{ url('/about') }}"  class="nav-link ">About</a>
-                        <a href="{{ url('/blog') }}"  class="nav-link ">Blog</a>
+                        <a href="{{ url('/viewblog') }}"  class="nav-link ">Blog</a>
                         <a href="{{ url('/project') }}"  class="nav-link ">Project</a>
                         <a href="{{ url('/team') }}"  class="nav-link ">Team</a>
                         <a href="{{ url('/contact') }}"  class="nav-link ">Contact Us</a>

@@ -1,3 +1,34 @@
+
+            *, *:after, *:before {
+              box-sizing: box-sizing;
+          }
+          html,body { 
+              margin: 0; 
+              height: 100%; 
+              background: #fff;
+              font-family: sans-serif; 
+          }
+          .wrap {
+              float: right;
+              width: 100%;
+              height: 100%;
+              margin-left: -250px; /* The size of the fixed block. */
+          }
+          .content {
+              padding-left: 50px;
+              height: 100%;
+             color: black;
+              margin-left: 250px; /* The size of the fixed block. */
+          }
+          .sidebar {
+              position: relative;
+              height: 100%;
+              
+              float: right;
+              width: 250px; /* The size of the fixed block. */
+          }
+
+
 .masthead {
     height: 100vh;
     min-height: 500px;
@@ -5,4 +36,89 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+  .blog{
+    font-size: 20px;
+    
+  }
+
+  .text {
+    display: block;
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .contact-form{
+    background: #fff;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    width: 70%;
+}
+.contact-form .form-control{
+    border-radius:1rem;
+}
+.contact-image{
+    text-align: center;
+}
+.contact-image img{
+    border-radius: 6rem;
+    width: 11%;
+    margin-top: -3%;
+    transform: rotate(29deg);
+}
+.contact-form form{
+    padding: 14%;
+}
+.contact-form form .row{
+    margin-bottom: -7%;
+}
+.contact-form h3{
+    margin-bottom: 8%;
+    margin-top: -10%;
+    text-align: center;
+    color: #0062cc;
+}
+.contact-form .btnContact {
+    width: 50%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #dc3545;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+.btnContactSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #fff;
+    background-color: #0062cc;
+    border: none;
+    cursor: pointer;
+}
+
+
+.vertical-menu {
+    width: 200px;
+  }
+  
+  .vertical-menu a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+  }
+  
+  .vertical-menu a:hover {
+    background-color: #ccc;
+  }
+  
+  .vertical-menu a.active {
+    background-color: #4CAF50;
+    color: white;
   }
