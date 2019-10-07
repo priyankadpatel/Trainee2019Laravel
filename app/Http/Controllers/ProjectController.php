@@ -28,19 +28,12 @@ class ProjectController extends Controller
         return view('project/project_home', compact('projectimage'));
     }
 
-    public function display()
+    public function display($id)
     {
-        //  $projectimage = DB::select('select * from projectimage where id = ?',[$id]);
 
-        // $project = DB::table('project')
-        // ->join('projectimage', 'projectimage.project_id', '=', 'project.id')
-        // ->select('projectimage.image', 'project.project_name', 'project.description', 'project.owner', 'project.budget')
-        // ->where('projectimage.id')->get();        
-
-        $projectimage = \App\Models\Projectimage::all();
-        
-        return view('project/project_description', compact('projectimage'));
-        // return view('project/project_description', ['project'=>$project]);
+        $project = \App\Models\Project::with('projectimage')->where('project.id',$id)->get();
+        return view('project/project_description', compact('project'));
+       
     }
 
     public function create(Request $request)
@@ -52,8 +45,8 @@ class ProjectController extends Controller
             'user_id' => 'required',
             'owner' => 'required',
             'budget' => 'required',
-            // 'image' => 'required',
-            // 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         $project_name = $request->input('project_name');
@@ -71,6 +64,7 @@ class ProjectController extends Controller
        $form->budget=$budget;
        
        $form->save();
+
        $project_id = $form->id;
         if($request->hasfile('image'))
         {
@@ -89,18 +83,21 @@ class ProjectController extends Controller
            
             }
         }
-      
-       return back()->with('success', 'Your images has been successfully');
-       return redirect('/project/project_home');
         
-        // $data=array('project_name'=>$project_name,"description"=>$description,"user_id"=>$user_id,"owner"=>$owner, "budget"=>$budget);
-        // DB::table('project')->insert($data);
-
-        // $data=array("project_id"=>1, "image"=>$image);
-        // DB::table('projectimage')->insert($data);
-
-        //return view('project/project_form');
+     
+       return view('/project/project_home');
+       
     }
+
+        public function projectdelete($id){
+
+            $project = \App\Models\Project::find($id);
+
+            $project->delete();
+            
+            return redirect('project/project_home');
+
+        }
     
     
 }

@@ -17,7 +17,7 @@
     @if (Route::has('login'))
         <div class="top-right links">
             @auth
-                <td><a href ='project/project_form'><button type="button" class="btn btn-outline-primary">Add Project</button></a></td>
+                <td><a href ='project/project_edit'><button type="button" class="btn btn-success">Create Project</button></a></td>
             @else
                
             @endauth
@@ -27,7 +27,7 @@
         @foreach ($projectimage as $projectimages)
         <div class="col-md-4">
               
-            <div class="card" style="width:250px;margin:15px">
+            <div class="card" style="width:250px;margin:15px;height: 250px">
                 <img class="card-img-top" src="images/project/{{ $projectimages->projectimage[0]->image }}" alt="Card image" style="width:100%">     
             </div>
             

@@ -15,10 +15,10 @@ class BlogTable extends Migration
     {
         Schema::create('blog', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->Integer('user_id');
-            $table->Integer('category_id');
+            $table->string('user_name');
+            $table->string('category_name');
             $table->string('blog_name');
-            $table->string('description');
+            $table->string('description',2000);
             $table->rememberToken();
             $table->timestamps();
         });
@@ -32,5 +32,7 @@ class BlogTable extends Migration
     public function down()
     {
         Schema::dropIfExists('blog');
+      
     }
+
 }
