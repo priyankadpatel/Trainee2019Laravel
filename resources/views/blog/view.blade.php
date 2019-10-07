@@ -17,8 +17,9 @@
                           </span>
                       </div>
                     </form>
-                <h4>Categorys</h4>
+                
                 <div class="vertical-menu">
+                <h4 style="margin-top: 35px;">Categorys</h4>
                         @if (count($Categorys) > 0)
                         @foreach ($Categorys as $Category)
                        
