@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -45,7 +46,7 @@
                                 <a href="{{ url('/home') }}" class="nav-link ">Home</a>
                                 <a href="{{ url('/about') }}" class="nav-link ">About</a>
                                 <a href="{{ url('/blog') }}" class="nav-link ">Blog</a>
-                                <a href="{{ url('/project') }}" class="nav-link ">Project</a>
+                                <a href="/project_home" class="nav-link ">Project</a>
                                 <a href="{{ url('/team') }}" class="nav-link ">Team</a>
                                 <a href="{{ url('/contact') }}" class="nav-link ">Contact Us</a>
                                 <a href="{{ route('login') }}" class="nav-link ">Login</a>
@@ -57,7 +58,7 @@
                         <a href="{{ url('/home') }}" class="nav-link ">Home</a>
                         <a href="{{ url('/about') }}"  class="nav-link ">About</a>
                         <a href="{{ url('/blog') }}"  class="nav-link ">Blog</a>
-                        <a href="{{ url('/project') }}"  class="nav-link ">Project</a>
+                        <a href="{{ url('/project_home') }}"  class="nav-link ">Project</a>
                         <a href="{{ url('/team') }}"  class="nav-link ">Team</a>
                         <a href="{{ url('/contact') }}"  class="nav-link ">Contact Us</a>
                       

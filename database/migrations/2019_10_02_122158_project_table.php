@@ -18,7 +18,6 @@ class ProjectTable extends Migration
             $table->Integer('user_id');
             $table->string('project_name');
             $table->string('description');
-            $table->string('image');
             $table->string('owner');
             $table->string('budget');
             $table->rememberToken();
