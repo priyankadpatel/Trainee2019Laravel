@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
+//admin::routes();
+
+
 Route::post('/createblog','BlogController@insert');
 
 Route::get('/viewblog','BlogController@view');
@@ -34,21 +38,52 @@ Route::get('/blogdetails/{id}','BlogController@details');
 
 Route::post('/search','BlogController@find');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/blog', 'BlogController@index')->name('blog/create');
 
-Route::get('/about', 'HomeController@index')->name('home');
 
-Route::get('/blog', 'HomeController@create')->name('blog/create');
 
+<<<<<<< HEAD
 Route::get('contact-us', 'ContactController@contactUS');
 
 Route::post('contact-us', 'ContactController@contactSaveData');
 
+=======
+Route::get('/project_home', 'ProjectController@index')->name('project/project_home');
+
+Route::get('/project/project_description/{id}', 'ProjectController@display');
+
+Route::group(['middleware' => ['auth']], function () {
+    
+    // Route::get('/user', 'ProjectController@index')->name('user');
+
+
+    Route::group(['middleware' => ['admin']], function () {
+
+        // Route::get('/admin', 'ProjectController@admindemo')->name('admin');
+        Route::get('/project/project_edit', function () {
+            return view('project.project_edit');
+        });
+
+        Route::post('/project/project_edit', 'ProjectController@create');
+>>>>>>> 52f70fb5d1a6d318a259f95bce8f0c4b4b90e3ac
+
+        Route::get('/project/edit/{id}', 'ProjectController@edit');
+        Route::post('/project/project_description/{id}', 'ProjectController@projectedit');
+
+        Route::get('/projectdelete/{id}','ProjectController@projectdelete');
+
+    });
+
+});
 
 
 
-Route::get('/project', 'ProjectController@index')->name('project/project_home');
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/about', 'HomeController@index')->name('home');
 
 Route::get('/team', 'HomeController@index')->name('home');
 
 Route::get('/contact', 'HomeController@index')->name('home');
+
+

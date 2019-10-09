@@ -69,7 +69,7 @@
                                 <a href="{{ url('/') }}" class="nav-link ">Home</a>
                                 <a href="{{ url('/about') }}" class="nav-link ">About</a>
                                 <a href="{{ url('/viewblog') }}" class="nav-link ">Blog</a>
-                                <a href="{{ url('/project') }}" class="nav-link ">Project</a>
+                                <a href="{{ url('/project_home') }}" class="nav-link ">Project</a>
                                 <a href="{{ url('/team') }}" class="nav-link ">Team</a>
                                 <a href="{{ url('/contact-us') }}" class="nav-link ">Contact Us</a>
                                 <a href="{{ route('login') }}" class="nav-link ">Login</a>
@@ -81,7 +81,7 @@
                         <a href="{{ url('/') }}" class="nav-link ">Home</a>
                         <a href="{{ url('/about') }}"  class="nav-link ">About</a>
                         <a href="{{ url('/viewblog') }}"  class="nav-link ">Blog</a>
-                        <a href="{{ url('/project') }}"  class="nav-link ">Project</a>
+                        <a href="{{ url('/project_home') }}"  class="nav-link ">Project</a>
                         <a href="{{ url('/team') }}"  class="nav-link ">Team</a>
                         <a href="{{ url('/contact-us') }}"  class="nav-link ">Contact Us</a>
                       
