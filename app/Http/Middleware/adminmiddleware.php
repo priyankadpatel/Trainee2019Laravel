@@ -3,8 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
-class adminmiddleware
+class AdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,6 +16,15 @@ class adminmiddleware
      */
     public function handle($request, Closure $next)
     {
+        $userRoles = Auth::user()->roles->pluck('name');
+
+        if(!$userRoles->contains('Admin'))
+        {
+            return redirect('project_home')->with('alert', "Only admin allowed.....");
+            //return redirect()->route('project_home')->with('alert', "Only admin allowed.....");
+            //return redirect()->back()->with('alert', 'Only admin allowed to create projects.....');
+        }
+
         return $next($request);
     }
 }

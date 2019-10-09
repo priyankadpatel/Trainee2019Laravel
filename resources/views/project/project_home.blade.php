@@ -14,17 +14,23 @@
 </div>
 
 <div class="container">
+       
     @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <td><a href ='project/project_edit'><button type="button" class="btn btn-success">Create Project</button></a></td>
+        <div class="top-right links">     
+
+            @guest
+            @if (Route::has('login'))
+            {{-- <a href="{{ url('/blog') }}"  class="nav-link text-right"><button type="button"class="btn btn-success " style="width: 100px;" disabled="disabled">Create Blog</button></a> --}}
+            @endif  
+      
             @else
-               
-            @endauth
+            <a href="/project/project_edit"  class="nav-link text-right"><button type="button" style="width: 120px;" class="btn btn-success">Create Project</button></a>
+            
+          @endguest
         </div>
     @endif
     <div class="row justify-content-center">
-        @foreach ($projectimage as $projectimages)
+            @foreach ($projectimage as $projectimages)
         <div class="col-md-4">
               
             <div class="card" style="width:250px;margin:15px;height: 250px">
@@ -40,3 +46,13 @@
 </div>
 
 @endsection
+
+
+
+@if (session('alert'))
+    <div class="alert alert-danger">
+        {{ session('alert') }}
+    </div>
+@endif
+    
+    

@@ -19,14 +19,15 @@
                             </div>
                         </div>
                     @endif
-                    <form action='/project/project_edit' method="POST" enctype="multipart/form-data">
+                    @foreach ($project as $projects)
+                    <form action='/project/project_description/{{ $projects->id}}' method="POST" enctype="multipart/form-data">
                     @csrf
                     <input id="user_id" type="hidden" name="user_id" value = '{{ Auth::user()->id }}'>
                         <div class="form-group row">
                             <label for="project_name" class="col-md-4 col-form-label text-md-right">{{ __('project_name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="project_name" type="project_name" name="project_name" value = ''>
+                                <input id="project_name" type="project_name" name="project_name" value = '{{$projects->project_name}}'>
                             </div>
                         </div>
 
@@ -34,12 +35,13 @@
                             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id="description" type="description" name="description" value = ''></textarea>
+                                <textarea id="description" type="description" name="description">{{$projects->description}}</textarea>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="image" class="col-md-4 col-form-label text-md-right">{{ __('Image') }}</label>
+                            {{ $projects->projectimage[0]->image}}
                                 <div class="col-md-6">
                                     <input id="image" type="file" name="image[]" multiple class="form-control">
                                 </div>                                                             
@@ -49,7 +51,7 @@
                             <label for="owner" class="col-md-4 col-form-label text-md-right">{{ __('Owner') }}</label>
 
                             <div class="col-md-6">
-                                <input id="owner" type="owner" name="owner" value = ''>
+                                <input id="owner" type="owner" name="owner" value = '{{$projects->owner}}'>
                             </div>
                         </div>
 
@@ -57,7 +59,7 @@
                             <label for="budget" class="col-md-4 col-form-label text-md-right">{{ __('Budget') }}</label>
 
                             <div class="col-md-6">
-                                <input id="budget" type="budget" name="budget" value = ''>
+                                <input id="budget" type="budget" name="budget" value = '{{$projects->budget}}'>
                             </div>
                         </div>
 
@@ -65,7 +67,7 @@
                             <label for="startdate" class="col-md-4 col-form-label text-md-right">{{ __('Start Date') }}</label>
 
                             <div class="col-md-6">
-                                <input id="startdate" type="startdate" name="startdate" value = ''>
+                                <input id="startdate" type="startdate" name="startdate" value = '{{$projects->startdate}}'>
                             </div>
                         </div>
 
@@ -73,7 +75,7 @@
                             <label for="enddate" class="col-md-4 col-form-label text-md-right">{{ __('End Date') }}</label>
 
                             <div class="col-md-6">
-                                <input id="enddate" type="enddate" name="enddate" value = ''>
+                                <input id="enddate" type="enddate" name="enddate" value = '{{$projects->enddate}}'>
                             </div>
                         </div>
 
@@ -88,6 +90,7 @@
                         
 
                     </form>
+                    @endforeach
                 </div>
             </div>
         </div>
