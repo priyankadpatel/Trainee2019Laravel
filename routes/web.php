@@ -40,6 +40,10 @@ Route::get('/about', 'HomeController@index')->name('home');
 
 Route::get('/blog', 'HomeController@create')->name('blog/create');
 
+Route::get('contact-us', 'ContactController@contactUS');
+
+Route::post('contact-us', 'ContactController@contactSaveData');
+
 
 
 
