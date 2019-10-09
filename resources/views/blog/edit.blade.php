@@ -44,7 +44,7 @@
                       <div class="form-group">
                         <label for="uname">Image:</label>
                         {{ $blog->blog_image[0]->image}}
-                        <input type="file" name="image[]"  class="form-control" id="uname" placeholder="Enter username" multiple required>
+                        <input type="file" name="image[]"  class="form-control"  placeholder="Enter username" multiple>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                       </div>

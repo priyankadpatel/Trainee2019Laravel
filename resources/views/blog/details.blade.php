@@ -4,6 +4,17 @@
 
 <div class="container">
     <aside class="sidebar">
+        <form class="navbar-form navbar-left" action="{{ URL::to('search') }}" method="POST">
+            {{ csrf_field() }}
+          <div class="input-group">
+                <input type="text" id="search" name="search" class="form-control" placeholder="Search Blog">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default">
+                     <span class="glyphicon glyphicon-search">search</span>
+                     </button>
+              </span>
+          </div>
+        </form>
         <h4>Categorys</h4>
         <div class="vertical-menu">
         @foreach ($Categorys as $Category)
@@ -30,12 +41,7 @@
                     @endguest
  
                     @foreach ($blog as $blogs)
-                    id:{{ $blogs->id}}
-                    <h2>{{ $blogs->blog_name}}</h2>
-                 
-       
-
-                <div class="row">
+             <div class="row">
                         @foreach ($blogs->blog_image as $image)
                         <div class="col-md-4">
                           <div class="thumbnail">
@@ -47,17 +53,19 @@
                         </div>
                         @endforeach  
                       </div>
+                      <h2 style="mar">{{ $blogs->blog_name}}</h2>
                   
             {{-- <img src="/images/blog_image/{{ $image->image}}" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"> --}}
 
         
                    
-                 
-                    
-                    
-                 <span class="blog"><ul><li>{{ $blogs->user_name}}</li><li class="leftspan">{{ date('d-M-Y', strtotime($blogs->created_at)) }}</li></ul></span>
-                
-                      
+    
+            <span class="blog">
+                <ul style="list-style-type: none; overflow: hidden; margin: 10px; padding: 0;">
+                    <li style=" float: left;margin-right:50px; color:darkorange; ">{{ $blogs->user_name}}</li>
+                    <li class="leftspan" style="color:crimson; float: left;" >{{ date('d-M-Y', strtotime($blogs->created_at)) }}</li>
+                </ul>
+            </span> 
                     {{ $blogs->description}}
                     @guest
                     @if (Route::has('login'))
@@ -79,8 +87,12 @@
                    
                       @foreach ($comments->comment as $comment)
                      
-                      Name : {{ $comment->name}}<br>
-                      comment : {{ $comment->comment}}
+                     
+                   {{ $comment->comment}}
+                   <span style="margin-left: 40px;">
+                   <img src="/images/user.png" width="30px" alt="">
+                   {{ $comment->name}}
+                      </span> 
                       <hr>
                     @endforeach  
                     
