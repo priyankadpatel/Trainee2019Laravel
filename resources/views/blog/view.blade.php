@@ -44,12 +44,17 @@
           
                     @if (count($blog) > 0)
                     @foreach ($blog as $blog)
-                   id:{{ $blog->id}}
+                    <img src="images/blog_image/{{ $blog->blog_image[0]->image}}" width="500px" alt="">
+                  
                    <h2>{{ $blog->blog_name}}</h2>
-                   <img src="images/blog_image/{{ $blog->blog_image[0]->image}}" width="500px" alt="">
 
                    
-                <span class="blog"><ul><li>{{ $blog->user_name}}</li><li class="leftspan">{{ date('d-M-Y', strtotime($blog->created_at)) }}</li></ul></span>
+                <span class="blog">
+                    <ul style="list-style-type: none; overflow: hidden; margin: 10px; padding: 0;">
+                        <li style=" float: left;margin-right:50px; color:darkorange; ">{{ $blog->user_name}}</li>
+                        <li class="leftspan" style="color:crimson; float: left;" >{{ date('d-M-Y', strtotime($blog->created_at)) }}</li>
+                    </ul>
+                </span>
                
                      
                   <span >{{ str_limit($blog->description, 250) }}</span> 

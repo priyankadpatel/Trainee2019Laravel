@@ -13,13 +13,14 @@ class ContactTable extends Migration
      */
     public function up()
     {
-        Schema::create('contact', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->Integer('user_id');
-            $table->string('name');
-            $table->string('email', 250)->index();
-            $table->string('message');
-        });
+        Schema::create('contactus', function (Blueprint $table) { 
+            $table->increments('id'); 
+            $table->string('name'); 
+            $table->string('email'); 
+            $table->string('subject');
+            $table->text('message'); 
+            $table->timestamps(); 
+            });
     }
 
     /**
@@ -29,6 +30,6 @@ class ContactTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact');
+        Schema::drop("contactus");
     }
 }
