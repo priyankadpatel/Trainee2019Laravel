@@ -18,13 +18,6 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        // $projectimage = DB::select('select * from projectimage');
-
-        // $projectimage = DB::table('projectimage')
-        // ->join('project', 'project.id', '=', 'projectimage.project_id')
-        // ->select('project.project_name', 'projectimage.image', 'projectimage.project_id')
-        // ->get();
-
         $projectimage = \App\Models\Project::all();
         $projectcategorys = \App\Models\ProjectCategory::all();
         return view('project.project_home', compact('projectimage','projectcategorys'));
