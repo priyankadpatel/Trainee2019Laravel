@@ -38,7 +38,7 @@ Route::get('/blogdetails/{id}','BlogController@details');
 
 Route::post('/search','BlogController@find');
 
-Route::get('/blog', 'BlogController@index')->name('blog/create');
+Route::get('/blog', 'HomeController@blogcreate')->name('blog/create');
 
 
 

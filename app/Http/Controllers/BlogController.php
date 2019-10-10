@@ -74,8 +74,8 @@ class BlogController extends Controller
         public function view(){
  
             $Categorys = \App\Category::all();
-            $blog = \App\blog::with('blog_image')->get();
-            
+            // $blog = \App\blog::with('blog_image')->Paginate(2);
+            $blog = \App\blog::paginate(2);
     //        echo '<pre>';print_r($blog);
     //  exit;
             return view('blog.view',compact('blog','Categorys'));
@@ -88,8 +88,8 @@ class BlogController extends Controller
 
 
           
-    //      echo '<pre>';print_r($blog_comment);
-    //  exit;
+        //      echo '<pre>';print_r($blog);
+        //   exit;
             return view('blog.details',compact('blog','blog_comment','Categorys'));
         }
 

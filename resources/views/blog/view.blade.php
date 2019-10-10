@@ -61,14 +61,14 @@
                    <a href="/blogdetails/{{$blog->id}}" style="font-size: 20px;" class="nav-link ">Read More....</a>
                     <hr>
                     @endforeach
-         
+                    {{ $blog->links() }}
                     @else
 
                     <h2>No Results Found</h2>
                                     @endif
 
                 
-         
+                                    
         </div>
     </div>
 
