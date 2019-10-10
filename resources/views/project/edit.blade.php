@@ -48,6 +48,19 @@
                         </div> 
 
                         <div class="form-group row">
+                                <label for="category" class="col-md-4 col-form-label text-md-right">Category</label>
+                                
+                                <div class="col-md-6">
+                                    <select class="form-control" name="category_name">
+                                        
+                                            @foreach ($projectcategorys as $projectcategory)
+                                            <option value="{{ $projectcategory->category_name}}" {{$projects->category_name==$projectcategory->category_name?'selected="selected"':''}}>{{ $projectcategory->category_name}}</option>    
+                                            @endforeach    
+                                    </select>
+                                </div> 
+                        </div>
+
+                        <div class="form-group row">
                             <label for="owner" class="col-md-4 col-form-label text-md-right">{{ __('Owner') }}</label>
 
                             <div class="col-md-6">

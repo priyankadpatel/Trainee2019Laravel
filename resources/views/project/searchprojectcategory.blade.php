@@ -32,8 +32,9 @@
 
     <nav class="navbar navbar-expand-sm bg-light justify-content-center">
         <ul class="navbar-nav">
+
             <li class="nav-item">
-            <a class="nav-link" href="project_home">All</a>
+            <a class="nav-link" href="/project_home">All</a>
             </li>
            
                    
@@ -42,9 +43,7 @@
                         <a class="nav-link" href="/project_home/{{ $projectcategory->category_name}}">{{ $projectcategory->category_name}}</a>
                         
                        @endforeach 
-                       
-           
-           
+                          
         </ul>
                  
          
@@ -55,7 +54,7 @@
         <div class="col-md-4">
               
             <div class="card" style="width:250px;margin:15px;height: 250px">
-                <img class="card-img-top" src="images/project/{{ $projectimages->projectimage[0]->image }}" alt="Card image" style="width:100%">     
+                <img class="card-img-top" src="/images/project/{{ $projectimages->projectimage[0]->image }}" alt="Card image" style="width:100%">     
             </div>
             
             <div class="card-body">      

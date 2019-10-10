@@ -44,6 +44,8 @@ Route::get('/blog', 'BlogController@index')->name('blog/create');
 
 Route::get('/project_home', 'ProjectController@index')->name('project/project_home');
 
+Route::get('/project_home/{Categoryname}', 'ProjectController@searchprojectcategory');
+
 Route::get('/project/project_description/{id}', 'ProjectController@display');
 
 Route::group(['middleware' => ['auth']], function () {
@@ -54,10 +56,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['admin']], function () {
 
         // Route::get('/admin', 'ProjectController@admindemo')->name('admin');
-        Route::get('/project/project_edit', function () {
-            return view('project.project_edit');
-        });
-
+        Route::get('/project/project_edit','ProjectController@ProjectCategory');
+      
         Route::post('/project/project_edit', 'ProjectController@create');
 
         Route::get('/project/edit/{id}', 'ProjectController@edit');
