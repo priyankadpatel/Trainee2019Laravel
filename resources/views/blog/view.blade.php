@@ -40,7 +40,7 @@
         <div class="col-md-8">
    
                     
-                    <a href="{{ url('/blog') }}"  class="nav-link text-right"><button type="button" style="width: 100px;" class="btn btn-success " >Create Blog</button></a>
+                    <a href="{{ url('/blog') }}"  class="nav-link text-right"><button type="button"  class="btn btn-success " >Create Blog</button></a>
           
                     @if (count($blog) > 0)
                     @foreach ($blog as $blog)

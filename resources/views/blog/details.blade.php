@@ -37,7 +37,7 @@
                     @endif  
 
                     @else
-                    <a href="{{ url('/blog') }}"  class="nav-link text-right"><button type="button" style="width: 100px;" class="btn btn-success " >Create Blog</button></a>
+                    <a href="{{ url('/blog') }}"  class="nav-link text-right"><button type="button"  class="btn btn-success " >Create Blog</button></a>
                     @endguest
  
                     @foreach ($blog as $blogs)
