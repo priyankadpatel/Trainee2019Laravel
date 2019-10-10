@@ -78,11 +78,9 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
-Route::get('/', 'HomeController@index')->name('home');
 
 
-
-
+Route::get('/', 'Controller@index');
 
 Route::get('/about', 'HomeController@index')->name('home');
 

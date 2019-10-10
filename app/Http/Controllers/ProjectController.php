@@ -18,7 +18,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projectimage = \App\Models\Project::all();
+        $projectimage = \App\Models\Project::paginate(2);
         $projectcategorys = \App\Models\ProjectCategory::all();
         return view('project.project_home', compact('projectimage','projectcategorys'));
     }
@@ -27,7 +27,7 @@ class ProjectController extends Controller
     {
         
         $projectimage = \App\Models\Project::where('project.category_name',$category_name)
-                        ->get();
+                        ->paginate(2);
         $projectcategorys = \App\Models\ProjectCategory::all();
   
         return view('project.searchprojectcategory', compact('projectimage','projectcategorys'));
@@ -40,7 +40,7 @@ class ProjectController extends Controller
 
         $projectimage = \App\Models\Project::where('project.category_name', 'like', "$search%" )
                         ->orwhere('project.project_name', 'like', "$search%" )
-                        ->get();
+                        ->paginate(2);
         $projectcategorys = \App\Models\ProjectCategory::all();
   
         return view('project.searchprojectcategory', compact('projectimage','projectcategorys'));

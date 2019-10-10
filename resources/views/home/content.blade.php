@@ -15,10 +15,7 @@
 
 <!-- Header -->
 <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-  <img class="w3-image" src="/w3images/architect.jpg" alt="laravel logo" width="1500" height="800">
-  <div class="w3-display-middle w3-margin-top w3-center">
-    <h1 class="w3-xxlarge w3-text-white"><span class="w3-hide-small w3-text-light-grey">Laravel</span></h1>
-  </div>
+  <img class="w3-image" src="/images/website_logo.jpg" alt="laravel logo" width="1500" height="800">
 </header>
 
 <!-- Page content -->
@@ -26,9 +23,11 @@
 
   <!-- Project Section -->
   <div class="w3-container w3-padding-32" id="projects">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Projects</h3>
+    <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16 text-center">Projects</h2>
   </div>
 
+  <div class="row justify-content-center">
+@if (count($project) > 0)
   @foreach ($project as $projects)
         <div class="col-md-4">   
             <div class="card" style="width:250px;margin:15px;height: 250px">
@@ -36,57 +35,76 @@
             </div>
             
             <div class="card-body">      
-                <a href="project/project_description/{{ $projects->id }}" class="card-link">{{ $projects->project_name }}</a>
+                <a href="project/project_description/{{ $projects->id }}" class="card-link" style="text-decoration: underline;">{{ $projects->project_name }}</a>
             </div>
         </div>
   @endforeach
-  {{ $project->links() }}
-
+  {{-- {{ $project->links() }} --}}
+  @else
+  <h6>No Results Found</h6>
+@endif
+</div>
   <!-- Blog Section -->
    
    <div class="w3-container w3-padding-32" id="projects">
-      <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Blogs</h3>
+      <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16 text-center" >Blogs</h2>
    </div>
 
+   <div class="row justify-content-center">
+      @if (count($project) > 0)
   @foreach ($blog as $blogs)
   <div class="col-md-4">   
       <div class="card" style="width:250px;margin:15px;height: 250px">
-          <img class="card-img-top" src="images/project/{{ $blogs->blog_image[0]->image }}" alt="Card image" style="width:100%">     
+          <img class="card-img-top" src="images/blog_image/{{ $blogs->blog_image[0]->image }}" alt="Card image" style="width:100%">     
       </div>
       
-      <div class="card-body">      
-          <a href="project/project_description/{{ $blogs->id }}" class="card-link">{{ $blogs->blog_name }}</a>
+      <div class="card-body">  
+          
+          <a href="/blogdetails/{{$blogs->id}}" class="card-link" style="text-decoration: underline;">{{ $blogs->blog_name }}</a>
       </div>
   </div>
   @endforeach
-  {{ $blog->links() }}
+ 
+  @else
+  <h6>No Results Found</h6>
+@endif
+</div>
 
-  <!-- About Section -->
-  <div class="w3-container w3-padding-32" id="about">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
-  </div>
-
-  <div class="w3-row-padding w3-grayscale">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="/w3images/team2.jpg" alt="John" style="width:100%">
-      <h3>John Doe</h3>
-      <p class="w3-opacity">CEO & Founder</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+  <!-- Team Section -->
+  <div class="w3-container w3-padding-32" id="projects">
+      <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16 text-center">Teams</h2>
     </div>
+  
+    <div class="row justify-content-center">
+  @if (count($project) > 0)
+    @foreach ($project as $projects)
+          <div class="col-md-4">   
+              <div class="card" style="width:250px;margin:15px;height: 250px">
+                  <img class="card-img-top" src="images/" alt="Card image" style="width:100%">     
+              </div>
+              
+              <div class="card-body">      
+                  <a href="" class="card-link"></a>
+              </div>
+          </div>
+    @endforeach
+    {{-- {{ $project->links() }} --}}
+    @else
+    <h6>No Results Found</h6>
+  @endif
   </div>
   
 <!-- Image of location/map -->
-<div class="w3-container">
-  <img src="/w3images/map.jpg" class="w3-image" style="width:100%">
+<div class="mapouter">
+  <div class="gmap_canvas">
+    <iframe width="100%" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=byteparity&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+  </div>
+  <style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style>
 </div>
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-16">
-        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+        <p>Powered by <a href="https://laravel.com" title="laravel" target="_blank" class="w3-hover-text-green">Bytepariy Traniee</a></p>
 </footer>
 
 </body>

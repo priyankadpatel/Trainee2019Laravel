@@ -86,6 +86,10 @@
     </div>
 </div>
 
+<div class="row" style="float: right;">
+    {{ $projectimage->links() }}
+</div>
+
 @endsection
 
 
