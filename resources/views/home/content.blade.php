@@ -43,6 +43,11 @@
   {{ $project->links() }}
 
   <!-- Blog Section -->
+   
+   <div class="w3-container w3-padding-32" id="projects">
+      <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Blogs</h3>
+   </div>
+
   @foreach ($blog as $blogs)
   <div class="col-md-4">   
       <div class="card" style="width:250px;margin:15px;height: 250px">
