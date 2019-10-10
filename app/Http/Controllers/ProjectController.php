@@ -26,9 +26,28 @@ class ProjectController extends Controller
         // ->get();
 
         $projectimage = \App\Models\Project::all();
-        
-        return view('project/project_home', compact('projectimage'));
+      //  $projectcategorys = \App\Models\ProjectCategory::all();
+      $projectcategorys = \App\Models\ProjectCategory::all();
+        return view('project.project_home', compact('projectimage','projectcategorys'));
     }
+
+    public function searchprojectcategory($category_name)
+    {
+        
+        $projectimage = \App\Models\Project::where('project.category_name',$category_name)->get();
+      //  $projectcategorys = \App\Models\ProjectCategory::all();
+      $projectcategorys = \App\Models\ProjectCategory::all();
+  
+        return view('project.searchprojectcategory', compact('projectimage','projectcategorys'));
+    }
+
+    public function ProjectCategory()
+    {
+        $projectcategorys = \App\Models\ProjectCategory::all();
+                
+        return view('project.project_edit', compact('projectcategorys'));
+    }
+
 
     public function display($id)
     {
@@ -55,6 +74,7 @@ class ProjectController extends Controller
 
         $project_name = $request->input('project_name');
         $description = $request->input('description');
+        $category_name = $request->input('category_name');
         $user_id = $request->input('user_id');
         $owner = $request->input('owner');
         $budget = $request->input('budget');
@@ -65,6 +85,7 @@ class ProjectController extends Controller
        
        $form->project_name=$project_name;
        $form->description=$description;
+       $form->category_name=$category_name;
        $form->user_id=$user_id;
        $form->owner=$owner;
        $form->budget=$budget;
@@ -92,8 +113,7 @@ class ProjectController extends Controller
             }
         }
         
-     
-       return redirect('project_home');
+        return redirect('project_home');
        
     }
 
@@ -111,8 +131,9 @@ class ProjectController extends Controller
  
             $projectimage = \App\Models\Projectimage::all();
             $project = \App\Models\project::with('projectimage')->where('project.id',$id)->get();
+            $projectcategorys = \App\Models\ProjectCategory::all();
 
-             return view('project.edit',compact('project','projectimage'));
+             return view('project.edit',compact('project','projectimage','projectcategorys'));
          }
 
         public function projectedit(Request $request, $id){
@@ -130,6 +151,7 @@ class ProjectController extends Controller
     
             $project_name = $request->input('project_name');
             $description = $request->input('description');
+            $category_name = $request->input('category_name');
             $user_id = $request->input('user_id');
             $owner = $request->input('owner');
             $budget = $request->input('budget');
@@ -142,6 +164,7 @@ class ProjectController extends Controller
            $form->id=$id;
            $form->project_name=$project_name;
            $form->description=$description;
+           $form->category_name=$category_name;
            $form->user_id=$user_id;
            $form->owner=$owner;
            $form->budget=$budget;
@@ -169,10 +192,12 @@ class ProjectController extends Controller
                 }
             }
             
+            
             $project = \App\Models\Project::with('projectimage')->where('project.id',$id)->get();
             return view('project/project_description', compact('project'));
-         
 
         }
+
+       
     
 }

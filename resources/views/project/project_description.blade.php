@@ -48,6 +48,12 @@
 
         <div class="col-md-12">
 
+            <h3>Category : {{ $projects->category_name}}</h3>
+            
+          </div>
+
+        <div class="col-md-12">
+
           {{ $projects->description}}
         
         </div>
