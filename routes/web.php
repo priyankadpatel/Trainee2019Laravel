@@ -42,12 +42,10 @@ Route::get('/blog', 'BlogController@index')->name('blog/create');
 
 
 
-<<<<<<< HEAD
 Route::get('contact-us', 'ContactController@contactUS');
 
 Route::post('contact-us', 'ContactController@contactSaveData');
 
-=======
 Route::get('/project_home', 'ProjectController@index')->name('project/project_home');
 
 Route::get('/project_home/{Categoryname}', 'ProjectController@searchprojectcategory');
@@ -65,7 +63,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/project/project_edit','ProjectController@ProjectCategory');
       
         Route::post('/project/project_edit', 'ProjectController@create');
->>>>>>> 52f70fb5d1a6d318a259f95bce8f0c4b4b90e3ac
 
         Route::get('/project/edit/{id}', 'ProjectController@edit');
         Route::post('/project/project_description/{id}', 'ProjectController@projectedit');
