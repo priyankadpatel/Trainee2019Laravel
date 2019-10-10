@@ -51,7 +51,7 @@
   @foreach ($blog as $blogs)
   <div class="col-md-4">   
       <div class="card" style="width:250px;margin:15px;height: 250px">
-          <img class="card-img-top" src="images/project/{{ $blogs->blog_image[0]->image }}" alt="Card image" style="width:100%">     
+          <img class="card-img-top" src="images/blog_image/{{ $blogs->blog_image[0]->image }}" alt="Card image" style="width:100%">     
       </div>
       
       <div class="card-body">      

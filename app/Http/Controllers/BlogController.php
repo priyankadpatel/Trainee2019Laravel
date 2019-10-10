@@ -74,11 +74,10 @@ class BlogController extends Controller
         public function view(){
  
             $Categorys = \App\Category::all();
-            // $blog = \App\blog::with('blog_image')->Paginate(2);
-           // $blog = \App\blog::paginate(2);
+             $blog = \App\blog::with('blog_image')->Paginate(3);
+           
     //        echo '<pre>';print_r($blog);
     //  exit;
-    $blog = \App\blog::paginate(2);
             return view('blog.view',compact('blog','Categorys'));
         }
 
