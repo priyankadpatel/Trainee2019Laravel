@@ -46,16 +46,19 @@ Route::get('contact-us', 'ContactController@contactUS');
 
 Route::post('contact-us', 'ContactController@contactSaveData');
 
+
+
 Route::get('/project_home', 'ProjectController@index')->name('project/project_home');
 
 Route::get('/project_home/{Categoryname}', 'ProjectController@searchprojectcategory');
+
+Route::post('/search', 'ProjectController@search');
 
 Route::get('/project/project_description/{id}', 'ProjectController@display');
 
 Route::group(['middleware' => ['auth']], function () {
     
     // Route::get('/user', 'ProjectController@index')->name('user');
-
 
     Route::group(['middleware' => ['admin']], function () {
 
@@ -75,11 +78,15 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+
+
+
+
 
 Route::get('/about', 'HomeController@index')->name('home');
 
-Route::get('/team', 'HomeController@index')->name('home');
+Route::get('/team', 'TeamController@index')->name('team/team');
 
 Route::get('/contact', 'HomeController@index')->name('home');
 

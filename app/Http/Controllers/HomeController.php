@@ -23,7 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $blog = \App\blog::paginate(2);
+        $project = \App\Models\Project::paginate(2);
+        return view('home.content', compact('project','blog'));      
     }
 
     public function blogcreate(){
@@ -31,4 +33,5 @@ class HomeController extends Controller
  
         return view('blog.create',compact('Categorys'));
     }
+   
 }

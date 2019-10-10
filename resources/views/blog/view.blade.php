@@ -62,6 +62,7 @@
                     <hr>
                     @endforeach
                     {{ $blog->links() }}
+                    
                     @else
 
                     <h2>No Results Found</h2>

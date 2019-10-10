@@ -18,25 +18,30 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        // $projectimage = DB::select('select * from projectimage');
-
-        // $projectimage = DB::table('projectimage')
-        // ->join('project', 'project.id', '=', 'projectimage.project_id')
-        // ->select('project.project_name', 'projectimage.image', 'projectimage.project_id')
-        // ->get();
-
         $projectimage = \App\Models\Project::all();
-      //  $projectcategorys = \App\Models\ProjectCategory::all();
-      $projectcategorys = \App\Models\ProjectCategory::all();
+        $projectcategorys = \App\Models\ProjectCategory::all();
         return view('project.project_home', compact('projectimage','projectcategorys'));
     }
 
     public function searchprojectcategory($category_name)
     {
         
-        $projectimage = \App\Models\Project::where('project.category_name',$category_name)->get();
-      //  $projectcategorys = \App\Models\ProjectCategory::all();
-      $projectcategorys = \App\Models\ProjectCategory::all();
+        $projectimage = \App\Models\Project::where('project.category_name',$category_name)
+                        ->get();
+        $projectcategorys = \App\Models\ProjectCategory::all();
+  
+        return view('project.searchprojectcategory', compact('projectimage','projectcategorys'));
+    }
+
+    public function search(Request $request)
+    {
+        
+        $search = $request->input('search');
+
+        $projectimage = \App\Models\Project::where('project.category_name', 'like', "$search%" )
+                        ->orwhere('project.project_name', 'like', "$search%" )
+                        ->get();
+        $projectcategorys = \App\Models\ProjectCategory::all();
   
         return view('project.searchprojectcategory', compact('projectimage','projectcategorys'));
     }
