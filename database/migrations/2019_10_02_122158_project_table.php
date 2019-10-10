@@ -17,8 +17,8 @@ class ProjectTable extends Migration
             $table->bigIncrements('id');
             $table->Integer('user_id');
             $table->string('project_name');
-            $table->string('description');
-            $table->string('image');
+            $table->string('description',1000);
+            $table->string('category_name');
             $table->string('owner');
             $table->string('budget');
             $table->rememberToken();
