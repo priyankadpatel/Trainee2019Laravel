@@ -82,7 +82,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/about', 'HomeController@index')->name('home');
 
-Route::get('/team', 'HomeController@index')->name('home');
+Route::get('/team', 'TeamController@index')->name('team/team');
 
 Route::get('/contact', 'HomeController@index')->name('home');
 
