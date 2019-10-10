@@ -74,6 +74,11 @@
             <h6>No Results Found</h6>
         @endif
     </div>
+
+    <div class="row" style="float: right;">
+        {{ $projectimage->links() }}
+    </div>
+    
 </div>
 
 @endsection

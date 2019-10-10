@@ -10,4 +10,10 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function index()
+    {
+        $blog = \App\blog::paginate(2);
+        $project = \App\Models\Project::paginate(2);
+        return view('home.content', compact('project','blog'));      
+    }
 }
