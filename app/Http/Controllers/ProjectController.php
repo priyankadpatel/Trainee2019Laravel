@@ -26,17 +26,29 @@ class ProjectController extends Controller
         // ->get();
 
         $projectimage = \App\Models\Project::all();
-      //  $projectcategorys = \App\Models\ProjectCategory::all();
-      $projectcategorys = \App\Models\ProjectCategory::all();
+        $projectcategorys = \App\Models\ProjectCategory::all();
         return view('project.project_home', compact('projectimage','projectcategorys'));
     }
 
     public function searchprojectcategory($category_name)
     {
         
-        $projectimage = \App\Models\Project::where('project.category_name',$category_name)->get();
-      //  $projectcategorys = \App\Models\ProjectCategory::all();
-      $projectcategorys = \App\Models\ProjectCategory::all();
+        $projectimage = \App\Models\Project::where('project.category_name',$category_name)
+                        ->get();
+        $projectcategorys = \App\Models\ProjectCategory::all();
+  
+        return view('project.searchprojectcategory', compact('projectimage','projectcategorys'));
+    }
+
+    public function search(Request $request)
+    {
+        
+        $search = $request->input('search');
+
+        $projectimage = \App\Models\Project::where('project.category_name', 'like', "$search%" )
+                        ->orwhere('project.project_name', 'like', "$search%" )
+                        ->get();
+        $projectcategorys = \App\Models\ProjectCategory::all();
   
         return view('project.searchprojectcategory', compact('projectimage','projectcategorys'));
     }
