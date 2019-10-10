@@ -45,6 +45,6 @@ Route::get('/blog', 'HomeController@create')->name('blog/create');
 
 Route::get('/project', 'ProjectController@index')->name('project/project_home');
 
-Route::get('/team', 'HomeController@index')->name('home');
+Route::get('/team', 'TeamController@index')->name('team/team');
 
 Route::get('/contact', 'HomeController@index')->name('home');
