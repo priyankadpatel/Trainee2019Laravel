@@ -14,6 +14,7 @@ class Controller extends BaseController
     {
         $blog = \App\blog::latest()->paginate(2);
         $project = \App\Models\Project::latest()->paginate(2);
-        return view('home.content', compact('project','blog'));      
+        $team = \App\Team::latest()->paginate(2);
+        return view('home.content', compact('project','blog','team'));      
     }
 }
