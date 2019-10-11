@@ -7,15 +7,15 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <title>{{ config('app.name', 'Laravel') }}</title>  
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
    
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    {{-- @yield('javascript'); --}} 
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -112,12 +112,24 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+  
+
     </div>
 
-<<<<<<< HEAD
     
-<<!--===============================================================================================-->
-        <script src="js/main.js"></script>
+    
+<!--===============================================================================================-->
+        <script src="/js/main.js"></script>
+
+          {{-- <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script> --}}
+
+        <script src="{{ asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+        <script>
+            CKEDITOR.replace( 'description' );
+        </script>
+
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
         <script>
@@ -127,7 +139,5 @@
     
           gtag('config', 'UA-23581568-13');
         </script>
-=======
->>>>>>> 23e6e7fbb24c215ee77bfd7e7bcf4c76d28186b2
 </body>
 </html>

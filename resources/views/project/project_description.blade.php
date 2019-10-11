@@ -54,7 +54,7 @@
 
         <div class="col-md-12">
 
-          {{ $projects->description}}
+          {!!$projects->description!!}
         
         </div>
         
