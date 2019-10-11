@@ -32,6 +32,7 @@ class BlogController extends Controller
     }
 
     public function insert(Request $request){
+    
         $this->validate($request, [
            'user_id' => 'required',
            'category_id' => 'required',

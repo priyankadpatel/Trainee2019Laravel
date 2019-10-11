@@ -3,27 +3,8 @@
 @section('content')
 
 <div class="container">
-    <aside class="sidebar">
-        <form class="navbar-form navbar-left" action="{{ URL::to('search') }}" method="POST">
-            {{ csrf_field() }}
-          <div class="input-group">
-                <input type="text" id="search" name="search" class="form-control" placeholder="Search Blog">
-                <span class="input-group-btn">
-                    <button type="submit" class="btn btn-default">
-                     <span class="glyphicon glyphicon-search">search</span>
-                     </button>
-              </span>
-          </div>
-        </form>
-        <h4>Categorys</h4>
-        <div class="vertical-menu">
-        @foreach ($Categorys as $Category)
-       
-            <a href="/Category-blog/{{ $Category->category_name}}">{{ $Category->category_name}}</a>
-            
-           @endforeach 
-          </div>
-           </aside>
+   
+  @include('home.sidebar')
         <div class="wrap">
                 
                 <section class="content"> 
@@ -66,7 +47,7 @@
                     <li class="leftspan" style="color:crimson; float: left;" >{{ date('d-M-Y', strtotime($blogs->created_at)) }}</li>
                 </ul>
             </span> 
-                    {{ $blogs->description}}
+                    {!!$blogs->description!!}
                     @guest
                     @if (Route::has('login'))
                     {{-- <a href="{{ url('/blog') }}"  class="nav-link text-right"><button type="button"class="btn btn-success " style="width: 100px;" disabled="disabled">Create Blog</button></a> --}}

@@ -8,9 +8,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" ></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -111,13 +112,14 @@
 
         <main class="py-4">
             @yield('content')
+            <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
         </main>
     </div>
-
-<<<<<<< HEAD
     
+   
 <<!--===============================================================================================-->
-        <script src="js/main.js"></script>
+
+<script src="js/main.js"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
         <script>
@@ -127,7 +129,7 @@
     
           gtag('config', 'UA-23581568-13');
         </script>
-=======
->>>>>>> 23e6e7fbb24c215ee77bfd7e7bcf4c76d28186b2
+
+
 </body>
 </html>

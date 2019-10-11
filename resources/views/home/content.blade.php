@@ -51,7 +51,7 @@
    </div>
 
    <div class="row justify-content-center">
-      @if (count($project) > 0)
+      @if (count($blog) > 0)
   @foreach ($blog as $blogs)
   <div class="col-md-4">   
       <div class="card" style="width:250px;margin:15px;height: 250px">
