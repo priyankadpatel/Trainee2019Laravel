@@ -184,7 +184,6 @@ class ProjectController extends Controller
                 
                foreach($request->file('image') as $image)
                {
-               
                    
                    $name=$image->getClientOriginalName(); 
                    $image->move(public_path().'/images/project/', $name);  
@@ -196,8 +195,7 @@ class ProjectController extends Controller
                
                 }
             }
-            
-            
+             
             $project = \App\Models\Project::with('projectimage')->where('project.id',$id)->get();
             return view('project/project_description', compact('project'));
 

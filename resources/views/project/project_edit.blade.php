@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -34,7 +35,7 @@
                             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id="description" type="description" name="description" value = ''></textarea>
+                                <textarea id="description" type="description" name="description"></textarea>
                             </div>
                         </div>
 
@@ -97,9 +98,9 @@
                             </div>
                         </div>
 
-                        
-
                     </form>
+
+
                 </div>
             </div>
         </div>

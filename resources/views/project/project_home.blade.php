@@ -15,8 +15,17 @@
 
 <div class="container">
        
-    
-        <div class="top-right links"> 
+        <div class="top-right links" style="display: flow-root;" > 
+
+                @guest
+                @if (Route::has('login'))
+                {{-- <a href="{{ url('/blog') }}"  class="nav-link text-right"><button type="button"class="btn btn-success " style="width: 100px;" disabled="disabled">Create Blog</button></a> --}}
+                @endif  
+          
+                @else
+                <a href="/project/project_edit" style="display: contents;"  class="nav-link"><button type="button" style="width: 150px;" class="btn btn-success">Create Project</button></a>
+                
+              @endguest
                 <form class="navbar-form navbar-left" action="/search" style="float: right;" method="POST">
                         {{ csrf_field() }}
                       <div class="input-group" style="width: fit-content; ">
@@ -29,18 +38,11 @@
                       </div>
                     </form>     
              
-            @guest
-            @if (Route::has('login'))
-            {{-- <a href="{{ url('/blog') }}"  class="nav-link text-right"><button type="button"class="btn btn-success " style="width: 100px;" disabled="disabled">Create Blog</button></a> --}}
-            @endif  
-      
-            @else
-            <a href="/project/project_edit"  class="nav-link"><button type="button" style="width: 150px;" class="btn btn-success">Create Project</button></a>
             
-          @endguest
       
     </div>
 
+    
     <nav class="navbar navbar-expand-sm bg-light justify-content-center">
         
         <ul class="navbar-nav">
@@ -55,7 +57,8 @@
         </ul>
        
     </nav>
-    
+   
+
     <div class="row justify-content-center">
         @if (count($projectimage) > 0)
         @foreach ($projectimage as $projectimages)
