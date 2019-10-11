@@ -7,15 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<<<<<<< HEAD
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" ></script>
-=======
-    <title>{{ config('app.name', 'Laravel') }}</title>  
->>>>>>> de0ee9c620cb43207886a01239030057bcc97286
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -125,13 +117,6 @@
   
 
     </div>
-<<<<<<< HEAD
-    
-   
-<<!--===============================================================================================-->
-
-<script src="js/main.js"></script>
-=======
 
     
     
@@ -146,7 +131,6 @@
             CKEDITOR.replace( 'description' );
         </script>
 
->>>>>>> de0ee9c620cb43207886a01239030057bcc97286
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
         <script>
@@ -156,10 +140,7 @@
     
           gtag('config', 'UA-23581568-13');
         </script>
-<<<<<<< HEAD
 
 
-=======
->>>>>>> de0ee9c620cb43207886a01239030057bcc97286
 </body>
 </html>

@@ -19,19 +19,20 @@
 </header>
 
 <!-- Page content -->
-<div class="w3-content w3-padding" style="max-width:1564px">
+<div class="w3-content w3-padding" style="max-width:1564px; ">
+{{-- background-image:url(/images/bg8.jpg);background-attachment: fixed; background-repeat: no-repeat;background-size: cover; --}}
 
   <!-- Project Section -->
   <div class="w3-container w3-padding-32" id="projects">
     <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16 text-center">Projects</h2>
   </div>
 
-  <div class="row justify-content-center">
+  <div class="row justify-content-center ">
 @if (count($project) > 0)
   @foreach ($project as $projects)
         <div class="col-md-4">   
             <div class="card" style="width:250px;margin:15px;height: 250px">
-                <img class="card-img-top" src="images/project/{{ $projects->projectimage[0]->image }}" alt="Card image" style="width:100%">     
+                <img class="card-img-top" src="images/project/{{ $projects->projectimage[0]->image }}" alt="Card image" style="width:100%;margin: auto; height: inherit;">     
             </div>
             
             <div class="card-body">      
@@ -55,7 +56,7 @@
   @foreach ($blog as $blogs)
   <div class="col-md-4">   
       <div class="card" style="width:250px;margin:15px;height: 250px">
-          <img class="card-img-top" src="images/blog_image/{{ $blogs->blog_image[0]->image }}" alt="Card image" style="width:100%">     
+          <img class="card-img-top" src="images/blog_image/{{ $blogs->blog_image[0]->image }}" alt="Card image" style="width:100%;margin: auto; height: inherit;">     
       </div>
       
       <div class="card-body">  
