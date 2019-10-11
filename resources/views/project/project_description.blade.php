@@ -32,7 +32,7 @@
                     <div class="col-md-5">
                         <div class="thumbnail">
                         <a href="/images/project/{{ $image->image}}" target="_blank">
-                            <img src="/images/project/{{ $image->image}}" alt="Lights" style="width:100%">
+                            <img src="/images/project/{{ $image->image}}" alt="Lights" style="width:100%; height: inherit;">
                         </a>
                         </div>
                     </div>

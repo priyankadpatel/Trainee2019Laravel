@@ -31,7 +31,7 @@
                     </ul>
                 </span>
                  
-              <span >{{ str_limit($blog->description, 250) }}</span> 
+              <span >{!! str_limit($blog->description, 250) !!}</span> 
                <a href="/blogdetails/{{$blog->id}}" style="font-size: 20px;" class="nav-link ">Read More....</a>
                 <hr>
                 @endforeach

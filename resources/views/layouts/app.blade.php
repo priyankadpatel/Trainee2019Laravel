@@ -7,10 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" ></script>
-    <title>{{ config('app.name', 'Laravel') }}</title>  
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -148,6 +145,7 @@
     
           gtag('config', 'UA-23581568-13');
         </script>
+
 
 </body>
 </html>

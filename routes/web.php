@@ -85,6 +85,11 @@ Route::get('/', 'Controller@index');
 Route::get('/about', 'HomeController@index')->name('home');
 
 Route::get('/team', 'TeamController@index')->name('team/team');
+Route::get('/team/teammember/{id}', 'TeamController@teammember')->name('team/teammember');
+Route::get('/team/teaminsert', function () {
+    return view('/team/teaminsert');
+});
+Route::post('/team/teaminsert', 'TeamController@teaminsert')->name('team/teaminsert');
 
 Route::get('/contact', 'HomeController@index')->name('home');
 

@@ -64,7 +64,7 @@
         @foreach ($projectimage as $projectimages)
         <div class="col-md-4">   
             <div class="card" style="width:250px;margin:15px;height: 250px">
-                <img class="card-img-top" src="images/project/{{ $projectimages->projectimage[0]->image }}" alt="Card image" style="width:100%">     
+                <img class="card-img-top" src="images/project/{{ $projectimages->projectimage[0]->image }}" alt="Card image" style="width:100%; margin: auto; height: inherit;">     
             </div>
             
             <div class="card-body">      
