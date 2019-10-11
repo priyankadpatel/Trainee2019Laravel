@@ -9,13 +9,13 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
    
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    {{-- @yield('javascript'); --}} 
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -111,32 +111,26 @@
 
         <main class="py-4">
             @yield('content')
+            <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
         </main>
+
+  
+
     </div>
 
     
+    
 <!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-        <script src="vendor/animsition/js/animsition.min.js"></script>
-    <!--===============================================================================================-->
-        <script src="vendor/bootstrap/js/popper.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-        <script src="vendor/select2/select2.min.js"></script>
+        <script src="/js/main.js"></script>
+
+          {{-- <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script> --}}
+
+        <script src="{{ asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
         <script>
-            $(".selection-2").select2({
-                minimumResultsForSearch: 20,
-                dropdownParent: $('#dropDownSelect1')
-            });
+            CKEDITOR.replace( 'description' );
         </script>
-    <!--===============================================================================================-->
-        <script src="vendor/daterangepicker/moment.min.js"></script>
-        <script src="vendor/daterangepicker/daterangepicker.js"></script>
-    <!--===============================================================================================-->
-        <script src="vendor/countdowntime/countdowntime.js"></script>
-    <!--===============================================================================================-->
-        <script src="js/main.js"></script>
+
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
         <script>
@@ -146,5 +140,7 @@
     
           gtag('config', 'UA-23581568-13');
         </script>
+
+
 </body>
 </html>

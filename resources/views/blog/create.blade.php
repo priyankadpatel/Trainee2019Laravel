@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -22,9 +21,9 @@
                     <div class="form-group">
                         <label for="uname">Title:</label>
                         <input type="text" class="form-control" id="uname" placeholder="Enter username" name="blog_name" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                       
                       </div>
+                  
                       <div class="form-group">
                         <label for="sel1">Category</label>
                         <select class="form-control" name="category_id" id="sel1">
@@ -41,46 +40,32 @@
                       <div class="form-group">
                         <label for="uname">Image:</label>
                         <input type="file" name="image[]"  class="form-control" id="uname" placeholder="Enter username" multiple required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                     
                       </div>
-
+                   
+                    
+                     
                       <div class="form-group">
                         <label for="uname">Description:</label>
-                        <textarea class="form-control" id="uname" name="description"></textarea>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
-                      </div>
+                        <textarea class="form-control" id="editor" name="description"></textarea>
+                        
+                      </div> 
                  
-                     
-                     
+                      <script>
+                        CKEDITOR.replace( 'description' );
+                        </script>
+
+
+
+
                   
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
                 </div>
-                
-                <script>
-                // Disable form submissions if there are invalid fields
-                (function() {
-                  'use strict';
-                  window.addEventListener('load', function() {
-                    // Get the forms we want to add validation styles to
-                    var forms = document.getElementsByClassName('needs-validation');
-                    // Loop over them and prevent submission
-                    var validation = Array.prototype.filter.call(forms, function(form) {
-                      form.addEventListener('submit', function(event) {
-                        if (form.checkValidity() === false) {
-                          event.preventDefault();
-                          event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                      }, false);
-                    });
-                  }, false);
-                })();
-                </script>
+            
             </div>
         </div>
     </div>
 </div>
 @endsection
+

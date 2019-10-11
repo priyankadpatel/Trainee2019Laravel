@@ -20,6 +20,10 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    
+   
+
+
     public function index(){
  
         $Categorys = \App\Category::all();
@@ -28,6 +32,7 @@ class BlogController extends Controller
     }
 
     public function insert(Request $request){
+    
         $this->validate($request, [
            'user_id' => 'required',
            'category_id' => 'required',
@@ -74,8 +79,8 @@ class BlogController extends Controller
         public function view(){
  
             $Categorys = \App\Category::all();
-            $blog = \App\blog::with('blog_image')->get();
-            
+             $blog = \App\blog::with('blog_image')->Paginate(3);
+           
     //        echo '<pre>';print_r($blog);
     //  exit;
             return view('blog.view',compact('blog','Categorys'));
@@ -88,8 +93,8 @@ class BlogController extends Controller
 
 
           
-    //      echo '<pre>';print_r($blog_comment);
-    //  exit;
+        //      echo '<pre>';print_r($blog);
+        //   exit;
             return view('blog.details',compact('blog','blog_comment','Categorys'));
         }
 
