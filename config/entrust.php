@@ -41,7 +41,7 @@ return [
     |
     */
   
-  //  'role_foreign_key' => 'role_id',
+    'role_foreign_key' => 'role_id',
 
     /*
     |--------------------------------------------------------------------------
@@ -75,7 +75,7 @@ return [
     |
     */
    
-    // 'role_user_table' => 'role_user',
+     'role_user_table' => 'role_user',
 
     /*
     |--------------------------------------------------------------------------
@@ -87,7 +87,7 @@ return [
     |
     */
     
-    //'user_foreign_key' => 'user_id',
+    'user_foreign_key' => 'user_id',
 
     /*
     |--------------------------------------------------------------------------
@@ -99,7 +99,7 @@ return [
     |
     */
   
-  //  'permission' => 'App\Permission',
+    'permission' => 'App\Permission',
 
     /*
     |--------------------------------------------------------------------------
@@ -111,7 +111,7 @@ return [
     |
     */
    
-   // 'permissions_table' => 'permissions',
+    'permissions_table' => 'permissions',
 
     /*
     |--------------------------------------------------------------------------
@@ -123,7 +123,7 @@ return [
     |
     */
     
-   // 'permission_role_table' => 'permission_role',
+    'permission_role_table' => 'permission_role',
 
     /*
     |--------------------------------------------------------------------------
@@ -135,5 +135,5 @@ return [
     |
     */
    
-    // 'permission_foreign_key' => 'permission_id',
+     'permission_foreign_key' => 'permission_id',
 ];
