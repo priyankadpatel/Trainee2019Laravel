@@ -55,11 +55,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
+                   
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -111,19 +107,14 @@
 
         <main class="py-4">
             @yield('content')
-            <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+            
         </main>
 
   
 
     </div>
     
-   
-<<!--===============================================================================================-->
-
-<script src="js/main.js"></script>
-
-    
+       
     
 <!--===============================================================================================-->
         <script src="/js/main.js"></script>

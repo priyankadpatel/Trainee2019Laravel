@@ -126,9 +126,6 @@
 	<iframe width="100%" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=byteparity&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 	<a href="https://www.embedgooglemap.org"></a>
 </div>
-	<div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=byteparity&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.org"></a></div></div>
-	
-	<div id="dropDownSelect1"></div>
 
 
 	
