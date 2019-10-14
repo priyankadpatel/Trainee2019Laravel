@@ -9,21 +9,22 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" ></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
    
-    <!-- Scripts -->
-   
-    {{-- @yield('javascript'); --}} 
+    
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    
 
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-    <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
         <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
@@ -55,22 +56,26 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                   
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+
+                    </ul>
+
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))
                      
-                                <a href="{{ url('/') }}" class="nav-link ">Home</a>
-                                <a href="{{ url('/about') }}" class="nav-link ">About</a>
-                                <a href="{{ url('/viewblog') }}" class="nav-link ">Blog</a>
-                                <a href="{{ url('/project_home') }}" class="nav-link ">Project</a>
-                                <a href="{{ url('/team') }}" class="nav-link ">Team</a>
-                                <a href="{{ url('/contact-us') }}" class="nav-link ">Contact Us</a>
-                                <a href="{{ route('login') }}" class="nav-link ">Login</a>
-                                <a href="{{ route('register') }}" class="nav-link ">Register</a>
-                       
+                        <a href="{{ url('/') }}" class="nav-link ">Home</a>
+                        <a href="{{ url('/about') }}" class="nav-link ">About</a>
+                        <a href="{{ url('/viewblog') }}" class="nav-link ">Blog</a>
+                        <a href="{{ url('/project_home') }}" class="nav-link ">Project</a>
+                        <a href="{{ url('/team') }}" class="nav-link ">Team</a>
+                        <a href="{{ url('/contact-us') }}" class="nav-link ">Contact Us</a>
+                        <a href="{{ route('login') }}" class="nav-link ">Login</a>
+                        <a href="{{ route('register') }}" class="nav-link ">Register</a>
+               
                         @endif  
 
                         @else
@@ -110,36 +115,13 @@
 
         <main class="py-4">
             @yield('content')
-            
         </main>
-
-  
-
     </div>
-    
-       
-    
-<!--===============================================================================================-->
-        <script src="/js/main.js"></script>
 
-          {{-- <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
-        <script src="{{ asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
         <script>
             CKEDITOR.replace( 'description' );
         </script>
-
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-    
-          gtag('config', 'UA-23581568-13');
-        </script>
-
-
 </body>
 </html>
