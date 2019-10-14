@@ -2,7 +2,15 @@
 
 @section('content')
 <div class="container">
+
+    @guest
+    @if (Route::has('login'))
+    @endif  
+    
+    @else
     <a href="/team/teaminsert" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Add Team Member</a>
+    @endguest
+
     <div class="row mt-3">
         @foreach($data as $team)
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
@@ -22,3 +30,9 @@
     </div>
 </div>
 @endsection
+
+@if (session('alert'))
+    <div class="alert alert-danger">
+        {{ session('alert') }}
+    </div>
+@endif

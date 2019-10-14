@@ -58,11 +58,9 @@ Route::get('/project/project_description/{id}', 'ProjectController@display');
 
 Route::group(['middleware' => ['auth']], function () {
     
-    // Route::get('/user', 'ProjectController@index')->name('user');
 
     Route::group(['middleware' => ['admin']], function () {
 
-        // Route::get('/admin', 'ProjectController@admindemo')->name('admin');
         Route::get('/project/project_edit','ProjectController@ProjectCategory');
       
         Route::post('/project/project_edit', 'ProjectController@create');
@@ -76,20 +74,26 @@ Route::group(['middleware' => ['auth']], function () {
 
 });
 
+Route::get('/team', 'TeamController@index')->name('team/team');
+Route::get('/team/teammember/{id}', 'TeamController@teammember')->name('team/teammember');
 
+Route::group(['middleware' => ['auth']], function () {
 
+    Route::group(['middleware' => ['admin']], function () {  
+        
+        Route::get('/team/teaminsert', function () {
+            return view('/team/teaminsert');
+        });
+        Route::post('/team/teaminsert', 'TeamController@teaminsert')->name('team/teaminsert');
+
+    });
+
+});
 
 
 Route::get('/', 'Controller@index');
 
 Route::get('/about', 'HomeController@index')->name('home');
-
-Route::get('/team', 'TeamController@index')->name('team/team');
-Route::get('/team/teammember/{id}', 'TeamController@teammember')->name('team/teammember');
-Route::get('/team/teaminsert', function () {
-    return view('/team/teaminsert');
-});
-Route::post('/team/teaminsert', 'TeamController@teaminsert')->name('team/teaminsert');
 
 Route::get('/contact', 'HomeController@index')->name('home');
 

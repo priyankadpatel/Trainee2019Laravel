@@ -232,6 +232,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         
+        'admin' => \App\Http\Middleware\AdminMiddleware::class,
 
     ],
 
