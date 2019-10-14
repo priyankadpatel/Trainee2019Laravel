@@ -25,7 +25,8 @@ class HomeController extends Controller
     {
         $blog = \App\blog::paginate(2);
         $project = \App\Models\Project::paginate(2);
-        return view('home.content', compact('project','blog'));      
+        $team = \App\Team::latest()->paginate(3);
+        return view('home.content', compact('project','blog','team'));      
     }
 
     public function blogcreate(){

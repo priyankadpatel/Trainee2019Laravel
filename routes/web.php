@@ -80,9 +80,14 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
-Route::get('/', 'Controller@index');
+Route::get('/', 'Controller@index')->name('home.content');
+Route::get('/home', 'HomeController@index')->name('home.content');
+
+
 
 Route::get('/about', 'HomeController@index')->name('home');
+
+
 
 Route::get('/team', 'TeamController@index')->name('team/team');
 Route::get('/team/teammember/{id}', 'TeamController@teammember')->name('team/teammember');
@@ -91,6 +96,6 @@ Route::get('/team/teaminsert', function () {
 });
 Route::post('/team/teaminsert', 'TeamController@teaminsert')->name('team/teaminsert');
 
-Route::get('/contact', 'HomeController@index')->name('home');
+
 
 
