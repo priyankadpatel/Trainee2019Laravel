@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
    
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+   
     {{-- @yield('javascript'); --}} 
 
     <!-- Styles -->
@@ -117,6 +117,11 @@
   
 
     </div>
+    
+   
+<<!--===============================================================================================-->
+
+<script src="js/main.js"></script>
 
     
     
