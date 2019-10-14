@@ -12,8 +12,9 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function index()
     {
-        $blog = \App\blog::latest()->paginate(2);
-        $project = \App\Models\Project::latest()->paginate(2);
-        return view('home.content', compact('project','blog'));      
+        $blog = \App\blog::latest()->paginate(3);
+        $project = \App\Models\Project::latest()->paginate(3);
+        $team = \App\Team::latest()->paginate(3);
+        return view('home.content', compact('project','blog','team'));      
     }
 }

@@ -24,11 +24,11 @@ class TeamController extends Controller
     // Insert Team Member
     public function teaminsert(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'required|max:255',
             'image' => 'required|mimes:jpeg,png,jpg,gif,svg',
             'designation' => 'required|max:255',
-            'description' => 'required|max:1000'
+            'descriptions' => 'required',
         ]);
 
         $team = new Team;
@@ -42,7 +42,7 @@ class TeamController extends Controller
 
         $team->image = $imagename;
         $team->designation = $request->input('designation');
-        $team->description = request('description');
+        $team->description = request('descriptions');
         $team->save();
         return redirect('team');
     

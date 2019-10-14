@@ -29,7 +29,7 @@
         <div class="form-group row">
             <label for="description" class="col-sm-2 col-form-label">Description:</label>
             <div class="col-sm-6">
-            <input type="text" class="form-control" name="description" id="description" placeholder="Description">
+            <input type="text" class="form-control" name="descriptions" id="descriptions" placeholder="Description">
             </div>
         </div>
 

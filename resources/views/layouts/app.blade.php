@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
    
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+   
     {{-- @yield('javascript'); --}} 
 
     <!-- Styles -->
@@ -111,14 +111,14 @@
 
         <main class="py-4">
             @yield('content')
-            <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+            
         </main>
 
   
 
     </div>
-
     
+       
     
 <!--===============================================================================================-->
         <script src="/js/main.js"></script>

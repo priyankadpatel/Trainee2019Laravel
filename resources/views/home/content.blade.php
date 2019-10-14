@@ -77,15 +77,15 @@
     </div>
   
     <div class="row justify-content-center">
-  @if (count($project) > 0)
-    @foreach ($project as $projects)
+  @if (count($team) > 0)
+    @foreach ($team as $teams)
           <div class="col-md-4">   
               <div class="card" style="width:250px;margin:15px;height: 250px">
-                  <img class="card-img-top" src="images/" alt="Card image" style="width:100%">     
+                  <img class="card-img-top" src="images/team_image/{{$teams->image}}" alt="Card image" style="width:100%;margin: auto; height: inherit;">     
               </div>
               
               <div class="card-body">      
-                  <a href="" class="card-link"></a>
+                  <a href="team/teammember/{{$teams->id}}" class="card-link">{{$teams->name}}</a>
               </div>
           </div>
     @endforeach
