@@ -4,11 +4,11 @@
 <div class="container">
 
     @guest
-    @if (Route::has('login'))
-    @endif  
-    
-    @else
-    <a href="/team/teaminsert" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Add Team Member</a>
+        @if (Route::has('login'))
+        @endif  
+        
+        @else
+        <a href="/team/teaminsert" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Add Team Member</a>
     @endguest
 
     <div class="row mt-3">
@@ -21,7 +21,17 @@
                 <div class="card-body text-center">
                     <h5 class="card-title">{{$team->name}}</h5>
                     <p class="card-text">{{$team->designation}}</p>
-                    <a href="{{url('/team/teammember/'.$team->id)}}" class="btn btn-primary">Read More</a>
+                    <a href="{{url('/team/teammember/'.$team->id)}}" class="btn btn-info">Read More</a>
+                    <div>
+                        @guest
+                            @if (Route::has('login'))
+                            @endif  
+                            
+                            @else
+                            <a href="{{url('/team/teamedit/'.$team->id)}}" title='Edit Record' data-toggle='tooltip'><span class="fa fa-edit fa-2x" aria-hidden="true"></span></a>
+                            <a href="/team/teamremove" title='Remove Record' data-toggle='tooltip'><span class="fa fa-trash fa-2x" aria-hidden="true"></span></a>
+                        @endguest
+                    </div>
                 </div>
             </div>
         </div>

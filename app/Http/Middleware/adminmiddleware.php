@@ -17,15 +17,19 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {   
+        // dd($request->path());
         $userRoles = Auth::user()->roles->pluck('name');
 
         if(!$userRoles->contains('Admin'))
         {
             if($request->path() === 'project/project_edit'){
-            return redirect('project_home')->with('alert', "Only admin allowed.....");
+                return redirect('project_home')->with('alert', "Only admin allowed.....");
             }
             elseif ($request->path() === 'team/teaminsert') {
-            return redirect('team')->with('alert', "Only admin allowed.....");
+                return redirect('team')->with('alert', "Only admin allowed.....");
+            }
+            elseif ($request->path() === "team/teamedit/") {
+                return redirect('team')->with('alert', "Only admin allowed.....");
             }
         }
         return $next($request);
