@@ -3,14 +3,13 @@
 @section('content')
 <div class="container">
 
-        @guest
-        @if (Route::has('login'))
-        
-        @endif  
-  
-        @else 
-        <a href="/team/teaminsert" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Add Team Member</a>
-        @endguest
+    @guest
+    @if (Route::has('login'))
+    @endif  
+    
+    @else
+    <a href="/team/teaminsert" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Add Team Member</a>
+    @endguest
 
     <div class="row mt-3">
         @foreach($data as $team)
