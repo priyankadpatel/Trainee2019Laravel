@@ -19,11 +19,11 @@
 
                 @guest
                 @if (Route::has('login'))
-                {{-- <a href="{{ url('/blog') }}"  class="nav-link text-right"><button type="button"class="btn btn-success " style="width: 100px;" disabled="disabled">Create Blog</button></a> --}}
+                
                 @endif  
           
                 @else
-                <a href="/project/project_edit" style="display: contents;"  class="nav-link"><button type="button" style="width: 150px;" class="btn btn-success">Create Project</button></a>
+                <a href="/project/project_edit" style="display: contents;" class="nav-link"><button type="button" style="width: 150px;" class="btn btn-success">Create Project</button></a>
                 
               @endguest
                 <form class="navbar-form navbar-left" action="/search" style="float: right;" method="POST">

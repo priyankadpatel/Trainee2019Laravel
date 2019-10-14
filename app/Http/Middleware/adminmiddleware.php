@@ -16,13 +16,12 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
+      
         $userRoles = Auth::user()->roles->pluck('name');
 
         if(!$userRoles->contains('Admin'))
         {
-            return redirect('project_home')->with('alert', "Only admin allowed.....");
-            //return redirect()->route('project_home')->with('alert', "Only admin allowed.....");
-            //return redirect()->back()->with('alert', 'Only admin allowed to create projects.....');
+            return redirect('/project_home')->with('alert', "Only admin allowed.....");
         }
 
         return $next($request);
