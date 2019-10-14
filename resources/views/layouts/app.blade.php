@@ -111,7 +111,7 @@
 
         <main class="py-4">
             @yield('content')
-            <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+            
         </main>
 
   
