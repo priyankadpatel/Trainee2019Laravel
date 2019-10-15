@@ -23,8 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $blog = \App\blog::paginate(2);
-        $project = \App\Models\Project::paginate(2);
+        $blog = \App\blog::latest()->paginate(2);
+        $project = \App\Models\Project::latest()->paginate(2);
         $team = \App\Team::latest()->paginate(3);
         return view('home.content', compact('project','blog','team'));      
     }

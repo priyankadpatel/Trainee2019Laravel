@@ -16,8 +16,7 @@ class AdminMiddleware
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {   
-        // dd($request->path());
+    { 
         $userRoles = Auth::user()->roles->pluck('name');
 
         if(!$userRoles->contains('Admin'))
@@ -28,10 +27,14 @@ class AdminMiddleware
             elseif ($request->path() === 'team/teaminsert') {
                 return redirect('team')->with('alert', "Only admin allowed.....");
             }
-            elseif ($request->path() === "team/teamedit/") {
+            elseif ($request->path() === "team/teamedit/$request->team_id") {
+                return redirect('team')->with('alert', "Only admin allowed.....");
+            }
+            elseif ($request->path() === "team/teamremove/$request->id") {
                 return redirect('team')->with('alert', "Only admin allowed.....");
             }
         }
         return $next($request);
     }
 }
+

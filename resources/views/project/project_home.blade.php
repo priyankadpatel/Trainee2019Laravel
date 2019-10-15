@@ -19,10 +19,14 @@
 
                 @guest
                 @if (Route::has('login'))
+<<<<<<< HEAD
+                
+=======
+>>>>>>> 2c7c30c21ce50e9b5bb65114dd34f0148085dc9f
                 @endif  
           
                 @else
-                <a href="/project/project_edit" style="display: contents;"  class="nav-link"><button type="button" style="width: 150px;" class="btn btn-success">Create Project</button></a>
+                <a href="/project/project_edit" style="display: contents;" class="nav-link"><button type="button" style="width: 150px;" class="btn btn-success">Create Project</button></a>
                 
               @endguest
                 <form class="navbar-form navbar-left" action="/search" style="float: right;" method="POST">

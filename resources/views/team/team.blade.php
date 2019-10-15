@@ -16,22 +16,12 @@
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
             <div class="card">
                 <div class="card-img"  style="width:200px; height:200px; margin:0 auto; text-align:center; overflow:hidden;">
-                    <img class="card-img-top" src="/images/team_image/{{$team->image}}" alt="Team Member">
+                    <img class="card-img-top" src="/images/team_image/{{$team->image}}" alt="{{$team->image}} not found">
                 </div>
                 <div class="card-body text-center">
                     <h5 class="card-title">{{$team->name}}</h5>
                     <p class="card-text">{{$team->designation}}</p>
                     <a href="{{url('/team/teammember/'.$team->id)}}" class="btn btn-info">Read More</a>
-                    <div>
-                        @guest
-                            @if (Route::has('login'))
-                            @endif  
-                            
-                            @else
-                            <a href="{{url('/team/teamedit/'.$team->id)}}" title='Edit Record' data-toggle='tooltip'><span class="fa fa-edit fa-2x" aria-hidden="true"></span></a>
-                            <a href="/team/teamremove" title='Remove Record' data-toggle='tooltip'><span class="fa fa-trash fa-2x" aria-hidden="true"></span></a>
-                        @endguest
-                    </div>
                 </div>
             </div>
         </div>

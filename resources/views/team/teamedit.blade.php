@@ -4,7 +4,7 @@
 <div class="container">
     <form method="POST" action="/team/teamedit" enctype="multipart/form-data">
         {{ csrf_field() }}
-        <input type="hidden" name="id" value="{{$data[0]->id}}">
+        <input type="hidden" name="team_id" value="{{$data[0]->id}}">
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-form-label">Name:</label>
             <div class="col-sm-6">
@@ -26,6 +26,7 @@
             <img src="/images/team_image/{{$data[0]->image}}" name="image" style="height:100px; width:100px" alt="img not found">
             </div>
         </div>
+        
         <div class="form-group row">
             <label for="description" class="col-sm-2 col-form-label">Description:</label>
             <div class="col-sm-6">
