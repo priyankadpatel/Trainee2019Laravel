@@ -19,7 +19,7 @@ class AdminMiddleware
     { 
         $userRoles = Auth::user()->roles->pluck('name');
 
-        if(!$userRoles->contains('Admin'))
+        if(!$userRoles->contains('admin'))
         {
             if($request->path() === 'project/project_edit'){
                 return redirect('project_home')->with('alert', "Only admin allowed.....");

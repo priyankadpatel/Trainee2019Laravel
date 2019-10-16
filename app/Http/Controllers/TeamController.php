@@ -7,6 +7,15 @@ use App\Team;
 
 class TeamController extends Controller
 {
+
+    function __construct()
+    {
+         $this->middleware('permission:project-create', ['only' => ['create','teaminsert']]);
+         $this->middleware('permission:project-edit', ['only' => ['edit','teaminsert']]);
+         $this->middleware('permission:project-delete', ['only' => ['teamremove']]);
+    }
+
+
     // View Team Member
     public function index()
     {
