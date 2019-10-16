@@ -22,7 +22,6 @@ class ProjectController extends Controller
 
     function __construct()
     {
-         $this->middleware('permission:project-list');
          $this->middleware('permission:project-create', ['only' => ['create','create']]);
          $this->middleware('permission:project-edit', ['only' => ['edit','edit']]);
          $this->middleware('permission:project-delete', ['only' => ['projectdelete']]);
