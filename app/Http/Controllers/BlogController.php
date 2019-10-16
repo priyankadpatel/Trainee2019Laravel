@@ -20,9 +20,7 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    
-
-
+     
 
     public function index(){
  
