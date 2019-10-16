@@ -10,7 +10,7 @@
         <div class="pull-right">
         @can('role-create')
             <a class="btn btn-success" href="{{ route('roles.create') }}"> Create New Role</a>
-            @endcan
+        @endcan
         </div>
     </div>
 </div>
@@ -25,13 +25,13 @@
 
 <table class="table table-bordered">
   <tr>
-     <th>No</th>
+     
      <th>Name</th>
      <th width="280px">Action</th>
   </tr>
     @foreach ($roles as $key => $role)
     <tr>
-        <td>{{ ++$i }}</td>
+        
         <td>{{ $role->name }}</td>
         <td>
             <a class="btn btn-info" href="{{ route('roles.show',$role->id) }}">Show</a>

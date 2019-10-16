@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
 
-
+ 
 <!-- Header -->
 <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
   <img class="w3-image" src="/images/website_logo.jpg" alt="laravel logo" width="1500" height="800">
@@ -21,6 +21,8 @@
 <!-- Page content -->
 <div class="w3-content w3-padding" style="max-width:1564px; ">
 {{-- background-image:url(/images/bg8.jpg);background-attachment: fixed; background-repeat: no-repeat;background-size: cover; --}}
+
+
 
   <!-- Project Section -->
   <div class="w3-container w3-padding-32" id="projects">

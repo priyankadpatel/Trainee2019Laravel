@@ -86,8 +86,8 @@
                         <a href="{{ url('/team') }}"  class="nav-link ">Team</a>
                         <a href="{{ url('/contact-us') }}"  class="nav-link ">Contact Us</a>
                       
-                        <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
-                        <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
+                        <li><a class="nav-link" href="{{ url('/users') }}">Manage Users</a></li>
+                        <li><a class="nav-link" href="{{ url('/roles') }}">Manage Role</a></li>
 
                             <li class="nav-item dropdown">
                                    
@@ -112,7 +112,11 @@
                 </div>
             </div>
         </nav>
-
+        @if ($message = Session::get('Danger'))
+        <div class="alert alert-danger">
+            <p>{{ $message }}</p>
+        </div>
+        @endif
         <main class="py-4">
             @yield('content')
         </main>

@@ -15,7 +15,19 @@ class ProjectController extends Controller
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
+     * 
+     * 
      */
+    
+
+    function __construct()
+    {
+         $this->middleware('permission:project-list');
+         $this->middleware('permission:project-create', ['only' => ['create','create']]);
+         $this->middleware('permission:project-edit', ['only' => ['edit','edit']]);
+         $this->middleware('permission:project-delete', ['only' => ['projectdelete']]);
+    }
+
     public function index()
     {
         $projectimage = \App\Models\Project::paginate(2);

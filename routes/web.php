@@ -103,8 +103,7 @@ Route::get('/about', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
-    Route::get('users','UserController@index');
-    Route::resource('users','UserController', ['except' => ['index']]);
+    Route::resource('users','UserController');
     Route::resource('products','ProductController');
 });
 

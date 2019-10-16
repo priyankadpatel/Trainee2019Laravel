@@ -19,10 +19,6 @@
 
                 @guest
                 @if (Route::has('login'))
-<<<<<<< HEAD
-                
-=======
->>>>>>> 2c7c30c21ce50e9b5bb65114dd34f0148085dc9f
                 @endif  
           
                 @else

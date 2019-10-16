@@ -8,6 +8,7 @@
                 <div class="card-header">{{ __('ADD NEW Project') }}</div>
 
                 <div class="card-body">
+                      
                         @if(count($errors))
                         <div class="form-group">
                             <div class="alert alert-danger">

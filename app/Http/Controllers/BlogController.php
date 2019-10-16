@@ -21,7 +21,14 @@ class BlogController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     
-   
+    function __construct()
+    {
+         $this->middleware('permission:blog-list');
+         $this->middleware('permission:blog-create', ['only' => ['create','insert']]);
+         $this->middleware('permission:blog-edit', ['only' => ['edit','edit']]);
+         $this->middleware('permission:blog-delete', ['only' => ['blogdelete']]);
+    }
+    
 
 
     public function index(){

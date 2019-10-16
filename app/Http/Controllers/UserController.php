@@ -14,19 +14,26 @@ use Hash;
 
 class UserController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:role-list');
+         $this->middleware('permission:role-create', ['only' => ['create','store']]);
+         $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:role-delete', ['only' => ['destroy']]);
+    }
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         
-        $data = users::orderBy('id','DESC')->paginate(5);
-        return view('users.index',compact('data'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        $data = User::orderBy('id','DESC')->paginate(5);
+        return view('users.index',compact('data'));
+       // ('users.index',compact('data'))->with('i', ($request->input('page', 1) - 1) * 5);
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -93,7 +100,6 @@ class UserController extends Controller
         $user = User::find($id);
         $roles = Role::pluck('name','name')->all();
         $userRole = $user->roles->pluck('name','name')->all();
-
 
         return view('users.edit',compact('user','roles','userRole'));
     }

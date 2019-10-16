@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-   
+    
     <div class="row justify-content-center">
       @foreach ($project as $projects)
         <div class="col-md-12">
@@ -87,12 +87,12 @@
             @if (Route::has('login'))
             {{-- <a href="{{ url('/blog') }}"  class="nav-link text-right"><button type="button"class="btn btn-success " style="width: 100px;" disabled="disabled">Create Blog</button></a> --}}
             @endif 
-            @elseif(Auth::user()->id == $projects->user_id)
-            <a href="/project/edit/{{$projects->id}}" style="font-size: 20px;" class="nav-link ">Edit</a>
-            <a href="/projectdelete/{{$projects->id}}" style="font-size: 20px;" class="nav-link ">Delete</a>
+            {{-- @elseif(Auth::user()->id == $projects->user_id) --}}
+            
             @endguest
         </div>
-
+        <a href="/project/edit/{{$projects->id}}" style="font-size: 20px;" class="nav-link ">Edit</a>
+        <a href="/projectdelete/{{$projects->id}}" style="font-size: 20px;" class="nav-link ">Delete</a>
     @endforeach  
         
      </div>
