@@ -22,10 +22,16 @@ class AdminMiddleware
         if(!$userRoles->contains('Admin'))
         {
             if($request->path() === 'project/project_edit'){
-            return redirect('project_home')->with('alert', "Only admin allowed.....");
+                return redirect('project_home')->with('alert', "Only admin allowed.....");
             }
             elseif ($request->path() === 'team/teaminsert') {
-            return redirect('team')->with('alert', "Only admin allowed.....");
+                return redirect('team')->with('alert', "Only admin allowed.....");
+            }
+            elseif ($request->path() === "team/teamedit/$request->team_id") {
+                return redirect('team')->with('alert', "Only admin allowed.....");
+            }
+            elseif ($request->path() === "team/teamremove/$request->id") {
+                return redirect('team')->with('alert', "Only admin allowed.....");
             }
         }
         return $next($request);

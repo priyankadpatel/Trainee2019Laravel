@@ -75,9 +75,8 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 
-
 Route::get('/team', 'TeamController@index')->name('team/team');
-Route::get('/team/teammember/{id}', 'TeamController@teammember')->name('team/teammember');
+Route::get('/team/teammember/{team_id}', 'TeamController@teammember')->name('team/teammember');
 
 Route::group(['middleware' => ['auth']], function () {
 
@@ -87,11 +86,16 @@ Route::group(['middleware' => ['auth']], function () {
             return view('/team/teaminsert');
         });
         Route::post('/team/teaminsert', 'TeamController@teaminsert')->name('team/teaminsert');
-
+        
+        Route::post('/team/teamedit', 'TeamController@teaminsert')->name('team/teamedit');
+        Route::get('/team/teamedit/{team_id}', 'TeamController@teammember')->name('team/teamedit');
+        
+        Route::get('/team/teamremove/{team_id}', 'TeamController@teamremove')->name('team/teamremove');
     });
 
 
 });
+
 
 
 Route::get('/', 'Controller@index')->name('home.content');
