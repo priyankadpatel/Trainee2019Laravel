@@ -19,7 +19,7 @@ class AdminMiddleware
     { 
         $userRoles = Auth::user()->roles->pluck('name');
 
-        if(!$userRoles->contains('Admin'))
+        if(!$userRoles->contains('admin'))
         {
             if($request->path() === 'project/project_edit'){
                 return redirect('project_home')->with('alert', "Only admin allowed.....");
@@ -30,7 +30,7 @@ class AdminMiddleware
             elseif ($request->path() === "team/teamedit/$request->team_id") {
                 return redirect('team')->with('alert', "Only admin allowed.....");
             }
-            elseif ($request->path() === "team/teamremove/$request->id") {
+            elseif ($request->path() === "team/teamremove/$request->team_id") {
                 return redirect('team')->with('alert', "Only admin allowed.....");
             }
         }

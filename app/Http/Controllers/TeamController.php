@@ -7,6 +7,14 @@ use App\Team;
 
 class TeamController extends Controller
 {
+
+    function __construct()
+    {
+        $this->middleware('permission:team-create', ['only' => ['create','teaminsert']]);
+        $this->middleware('permission:team-edit', ['only' => ['edit','teamedit']]);
+        $this->middleware('permission:team-delete', ['only' => ['teamremove']]);
+    }
+
     // View Team Member
     public function index()
     {
@@ -34,17 +42,12 @@ class TeamController extends Controller
             'name' => 'required|max:255',
             'image' => 'required|mimes:jpeg,png,jpg,gif,svg',
             'designation' => 'required|max:255',
-            'descriptions' => 'required',
+            'description' => 'required',
         ]);
         $team = new Team;
-
-        if($request->path() === "team/teamedit"){
-            $team = \App\Team::find($request->team_id);
-        }
-
         $team->name = $request->name;
         $team->designation = $request->input('designation');
-        $team->description = request('descriptions');
+        $team->description = request('description');
 
         if($request->hasFile('image')){
             $image = $request->file('image');
@@ -69,16 +72,31 @@ class TeamController extends Controller
     }
 
     // Edit Team Member
-    // public function teamedit($id)
-    // {
-    //     $team = \App\Team::where('teams.id', $id)->get();
-    //     return view('team.teamedit', compact('team'));
-    // }
+    public function teamedit(Request $request)
+    {   
+        $request->validate([
+            'name' => 'required|max:255',
+            'image' => 'mimes:jpeg,png,jpg,gif,svg',
+            'designation' => 'required|max:255',
+            'description' => 'required',
+        ]);
 
-    // public function teamedit(Request $request)
-    // {   
-    //     $team = \App\Team::where('teams.id', $request->id)->update(['name'=>$request->name]);
-    //     return redirect('team');
-    // }
+        $team = \App\Team::find($request->team_id);
+        $team->name = $request->name;
+        $team->designation = $request->input('designation');
+        $team->description = request('description');
+
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $path = public_path(). '/images/team_image/';
+            $extension = $image->getClientOriginalExtension();
+            $imagename = time() . '_' . $team->name . '_' .'updated' . '.' . $extension;
+            $image->move($path, $imagename);
+            $team->image = $imagename;
+        }
+        
+        $team->save();
+        return redirect('team');
+    }
 
 }

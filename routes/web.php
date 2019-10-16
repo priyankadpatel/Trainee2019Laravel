@@ -87,7 +87,7 @@ Route::group(['middleware' => ['auth']], function () {
         });
         Route::post('/team/teaminsert', 'TeamController@teaminsert')->name('team/teaminsert');
         
-        Route::post('/team/teamedit', 'TeamController@teaminsert')->name('team/teamedit');
+        Route::post('/team/teamedit', 'TeamController@teamedit')->name('team/teamedit');
         Route::get('/team/teamedit/{team_id}', 'TeamController@teammember')->name('team/teamedit');
         
         Route::get('/team/teamremove/{team_id}', 'TeamController@teamremove')->name('team/teamremove');
