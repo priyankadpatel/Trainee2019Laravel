@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name','Laravel') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" ></script>
@@ -73,6 +73,7 @@
                         <a href="{{ url('/project_home') }}" class="nav-link ">Project</a>
                         <a href="{{ url('/team') }}" class="nav-link ">Team</a>
                         <a href="{{ url('/contact-us') }}" class="nav-link ">Contact Us</a>
+                        <a href="{{ url('/news/view') }}"  class="nav-link ">News</a>
                         <a href="{{ route('login') }}" class="nav-link ">Login</a>
                         <a href="{{ route('register') }}" class="nav-link ">Register</a>
                
@@ -85,7 +86,7 @@
                         <a href="{{ url('/project_home') }}"  class="nav-link ">Project</a>
                         <a href="{{ url('/team') }}"  class="nav-link ">Team</a>
                         <a href="{{ url('/contact-us') }}"  class="nav-link ">Contact Us</a>
-                      
+                        <a href="{{ url('/news/view') }}"  class="nav-link ">News</a>
                         <li><a class="nav-link" href="{{ url('/users') }}">Manage Users</a></li>
                         <li><a class="nav-link" href="{{ url('/roles') }}">Manage Role</a></li>
 

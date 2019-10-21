@@ -9,11 +9,7 @@
         <div class="col-12 mt-3">
             <h5>Name: {{$data[0]->name}}</h5>
             <p>Designation: {{$data[0]->designation}}</p>
-            <p>Description: {!!$data[0]->description!!}</p>
-            <p>Qualification: {!!$data[0]->qualification!!}</p>
-            <p>Current Project: {!!$data[0]->c_project!!}</p>
-            <p>Previous Project: {!!$data[0]->p_Project!!}</p>
-            <p>Technology: {!!$data[0]->technology!!}</p>            
+            <p>Description: {{$data[0]->description}}</p>
         </div>
         <div class="col-12 m-4">
             @guest

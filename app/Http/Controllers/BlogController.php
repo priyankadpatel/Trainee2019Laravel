@@ -20,7 +20,8 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-     
+    
+   
 
     public function index(){
  
@@ -59,13 +60,13 @@ class BlogController extends Controller
            foreach($request->file('image') as $image)
            {
                
-               $name=$image->getClientOriginalName();
+               $name= time().$image->getClientOriginalName();
                $image->move(public_path().'/images/blog_image/', $name);  
                
                $image = new blog_image();
                $image->blog_id = $blog_id;
                $image->image = $name;
-               $image->save();
+               $image->save(); 
            }
         
         }
@@ -81,7 +82,7 @@ class BlogController extends Controller
            
     //        echo '<pre>';print_r($blog);
     //  exit;
-            return view('blog.view',compact('blog','Categorys'));
+            return view('blog.view',compact('blog','Categorys'));                   
         }
 
         public function details($id){
@@ -142,7 +143,7 @@ class BlogController extends Controller
             {
                foreach($request->file('image') as $image)
                    {
-                        $name=$image->getClientOriginalName();
+                        $name= time().$image->getClientOriginalName();
                         $image->move(public_path().'/images/blog_image/', $name);      
                         $image = new blog_image();
                         // $image->exists = true;

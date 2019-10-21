@@ -3,16 +3,6 @@
 @section('content')
 <div class="container">
 
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif    
-
     <form method="POST" action="/team/teaminsert" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group row">
@@ -39,7 +29,7 @@
         <div class="form-group row">
             <label for="description" class="col-sm-2 col-form-label">Description:</label>
             <div class="col-sm-6">
-            <textarea id="description" type="description" name="description"></textarea>
+            <input type="text" class="form-control" name="descriptions" id="descriptions" placeholder="Description">
             </div>
         </div>
 
@@ -49,6 +39,16 @@
             </div>
         </div>
     </div>
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 
 </div>
 @endsection

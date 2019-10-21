@@ -7,11 +7,11 @@
 
        @include('home.sidebar')
        
-    <div class="wrap">
+    <div class="wrap">  
                 
                 <section class="content"> 
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center">    
         <div class="col-md-8">
    
                     

@@ -87,7 +87,7 @@ Route::group(['middleware' => ['auth']], function () {
         });
         Route::post('/team/teaminsert', 'TeamController@teaminsert')->name('team/teaminsert');
         
-        Route::post('/team/teamedit', 'TeamController@teamedit')->name('team/teamedit');
+        Route::post('/team/teamedit', 'TeamController@teaminsert')->name('team/teamedit');
         Route::get('/team/teamedit/{team_id}', 'TeamController@teammember')->name('team/teamedit');
         
         Route::get('/team/teamremove/{team_id}', 'TeamController@teamremove')->name('team/teamremove');
@@ -110,4 +110,15 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users','UserController');
 });
 
+//  News Routes are star from here !
 
+Route::get('/news', 'newsController@index');
+Route::post('news/create', 'newsController@store')->name('news/create');
+Route::get('news/view', 'newsController@show')->name('news/view');
+Route::get('news/details/{id}', 'newsController@details')->name('news/details');
+Route::get('news/edit/{id}', 'newsController@edit')->name('news/edit');
+Route::post('news/edit_process/{id}', 'newsController@update')->name('news/edit_process');
+Route::get('news/delete/{id}', 'newsController@newsdelete')->name('news/delete');
+Route::get('/Category-news/{Categoryname}','newsController@CategoryNews');
+Route::post('/search','newsController@find');
+    

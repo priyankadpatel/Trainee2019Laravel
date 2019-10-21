@@ -30,7 +30,7 @@ class AdminMiddleware
             elseif ($request->path() === "team/teamedit/$request->team_id") {
                 return redirect('team')->with('alert', "Only admin allowed.....");
             }
-            elseif ($request->path() === "team/teamremove/$request->team_id") {
+            elseif ($request->path() === "team/teamremove/$request->id") {
                 return redirect('team')->with('alert', "Only admin allowed.....");
             }
         }
